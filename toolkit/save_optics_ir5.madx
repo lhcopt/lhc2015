@@ -1,0 +1,147 @@
+print,text="!*** IR5 Optics ***";
+
+printf,text="betxIP5b1=%11.6f; betyIP5b1=%11.6f; alfxIP5b1 =%11.6f; alfyIP5b1 =%11.6f; dxIP5b1   =%11.6f; dpxIP5b1  =%11.6f;", value=betxIP5b1,betyIP5b1,alfxIP5b1,alfyIP5b1, dxIP5b1,dpxIP5b1;
+printf,text="betxIP5b2=%11.6f; betyIP5b2=%11.6f; alfxIP5b2 =%11.6f; alfyIP5b2 =%11.6f; dxIP5b2   =%11.6f; dpxIP5b2  =%11.6f;", value=betxIP5b2,betyIP5b2,alfxIP5b2,alfyIP5b2, dxIP5b2,dpxIP5b2;
+
+printf,text="muxIP5b1 =%11.6f; muyIP5b1 =%11.6f; muxIP5b1_L=%11.6f; muyIP5b1_L=%11.6f; muxIP5b1_R=%11.6f; muyIP5b1_R=%11.6f;", value=muxIP5b1,muyIP5b1,refmuxIP5b1_L,refmuyIP5b1_L, refmuxIP5b1_R,refmuyIP5b1_R;
+printf,text="muxIP5b2 =%11.6f; muyIP5b2 =%11.6f; muxIP5b2_L=%11.6f; muyIP5b2_L=%11.6f; muxIP5b2_R=%11.6f; muyIP5b2_R=%11.6f;", value=muxIP5b2,muyIP5b2,refmuxIP5b2_L,refmuyIP5b2_L, refmuxIP5b2_R,refmuyIP5b2_R;
+print,text="";
+printf,text="!xip5b1 :=%16.9f*on_o5;"  ,value=refxip5b1 ;
+printf,text="!xip5b2 :=%16.9f*on_o5;"  ,value=refxip5b2 ;
+printf,text="!yip5b1 :=%16.9f*on_sep5;",value=refyip5b1 ;
+printf,text="!yip5b2 :=%16.9f*on_sep5;",value=refyip5b2 ;
+printf,text="!pxip5b1:=%16.9f*on_x5;"  ,value=refpxip5b1;
+printf,text="!pxip5b2:=%16.9f*on_x5;"  ,value=refpxip5b2;
+!printf,text="!pyip5b1:=%16.9f*on_a5;"  ,value=refpyip5b1;
+!printf,text="!pyip5b2:=%16.9f*on_a5;"  ,value=refpyip5b2;
+print,text="";
+
+printf,text="px_on_x5 =%16.9f;"  ,value=px_on_x5;
+printf,text="y_on_sep5=%16.9f;"  ,value=y_on_sep5;
+printf,text="x_on_o5  =%16.9f;"  ,value=x_on_o5;
+!printf,text="py_on_a5 =%16.9f;"  ,value=py_on_a5;
+acbx_x5n=acbx_x5*px_on_x5;acbx_sep5n=acbx_sep5*y_on_sep5;
+printf,text="acbx_x5  =%16.6e/(%16.6e);",value=acbx_x5n,px_on_x5;
+printf,text="acbx_sep5=%16.6e/(%16.6e);",value=acbx_sep5n,y_on_sep5;
+print,text="";
+
+
+
+printf,text="kqx.l5      = %30.24f;",value=kqx.l5;
+printf,text="ktqx1.l5    = %30.24f;",value=ktqx1.l5;
+printf,text="ktqx2.l5    = %30.24f;",value=ktqx2.l5;
+printf,text="kqx.r5      = %30.24f;",value=kqx.r5;
+printf,text="ktqx1.r5    = %30.24f;",value=ktqx1.r5;
+printf,text="ktqx2.r5    = %30.24f;",value=ktqx2.r5;
+printf,text="kq4.l5b1    = %30.24f;",value=kq4.l5b1;
+printf,text="kq4.l5b2    = %30.24f;",value=kq4.l5b2;
+printf,text="kq4.r5b1    = %30.24f;",value=kq4.r5b1;
+printf,text="kq4.r5b2    = %30.24f;",value=kq4.r5b2;
+printf,text="kq5.l5b1    = %30.24f;",value=kq5.l5b1;
+printf,text="kq5.l5b2    = %30.24f;",value=kq5.l5b2;
+printf,text="kq5.r5b1    = %30.24f;",value=kq5.r5b1;
+printf,text="kq5.r5b2    = %30.24f;",value=kq5.r5b2;
+printf,text="kq6.l5b1    = %30.24f;",value=kq6.l5b1;
+printf,text="kq6.l5b2    = %30.24f;",value=kq6.l5b2;
+printf,text="kq6.r5b1    = %30.24f;",value=kq6.r5b1;
+printf,text="kq6.r5b2    = %30.24f;",value=kq6.r5b2;
+printf,text="kq7.l5b1    = %30.24f;",value=kq7.l5b1;
+printf,text="kq7.l5b2    = %30.24f;",value=kq7.l5b2;
+printf,text="kq7.r5b1    = %30.24f;",value=kq7.r5b1;
+printf,text="kq7.r5b2    = %30.24f;",value=kq7.r5b2;
+printf,text="kq8.l5b1    = %30.24f;",value=kq8.l5b1;
+printf,text="kq8.l5b2    = %30.24f;",value=kq8.l5b2;
+printf,text="kq8.r5b1    = %30.24f;",value=kq8.r5b1;
+printf,text="kq8.r5b2    = %30.24f;",value=kq8.r5b2;
+printf,text="kq9.l5b1    = %30.24f;",value=kq9.l5b1;
+printf,text="kq9.l5b2    = %30.24f;",value=kq9.l5b2;
+printf,text="kq9.r5b1    = %30.24f;",value=kq9.r5b1;
+printf,text="kq9.r5b2    = %30.24f;",value=kq9.r5b2;
+printf,text="kq10.l5b1   = %30.24f;",value=kq10.l5b1;
+printf,text="kq10.l5b2   = %30.24f;",value=kq10.l5b2;
+printf,text="kq10.r5b1   = %30.24f;",value=kq10.r5b1;
+printf,text="kq10.r5b2   = %30.24f;",value=kq10.r5b2;
+printf,text="kqtl11.l5b1 = %30.24f;",value=kqtl11.l5b1;
+printf,text="kqtl11.l5b2 = %30.24f;",value=kqtl11.l5b2;
+printf,text="kqtl11.r5b1 = %30.24f;",value=kqtl11.r5b1;
+printf,text="kqtl11.r5b2 = %30.24f;",value=kqtl11.r5b2;
+printf,text="kqt12.l5b1  = %30.24f;",value=kqt12.l5b1;
+printf,text="kqt12.l5b2  = %30.24f;",value=kqt12.l5b2;
+printf,text="kqt12.r5b1  = %30.24f;",value=kqt12.r5b1;
+printf,text="kqt12.r5b2  = %30.24f;",value=kqt12.r5b2;
+printf,text="kqt13.l5b1  = %30.24f;",value=kqt13.l5b1;
+printf,text="kqt13.l5b2  = %30.24f;",value=kqt13.l5b2;
+printf,text="kqt13.r5b1  = %30.24f;",value=kqt13.r5b1;
+printf,text="kqt13.r5b2  = %30.24f;",value=kqt13.r5b2;
+print,text="";
+
+
+
+printf,text="acbxh1.l5    := %+16.9e * on_x5;",value=acbxh1.l5_on_x5   ;
+printf,text="acbxh1.r5    := %+16.9e * on_x5;",value=acbxh1.r5_on_x5   ;
+printf,text="acbxh2.l5    := %+16.9e * on_x5;",value=acbxh2.l5_on_x5   ;
+printf,text="acbxh2.r5    := %+16.9e * on_x5;",value=acbxh2.r5_on_x5   ;
+printf,text="acbxh3.l5    := %+16.9e * on_x5;",value=acbxh3.l5_on_x5   ;
+printf,text="acbxh3.r5    := %+16.9e * on_x5;",value=acbxh3.r5_on_x5   ;
+if (x_on_o5==0) {
+printf,text="acbyhs4.l5b1 := %+16.9e * on_x5;",value=acbyhs4.l5b1_on_x5;
+printf,text="acbyhs4.r5b1 := %+16.9e * on_x5;",value=acbyhs4.r5b1_on_x5;
+printf,text="acbyhs4.l5b2 := %+16.9e * on_x5;",value=acbyhs4.l5b2_on_x5;
+printf,text="acbyhs4.r5b2 := %+16.9e * on_x5;",value=acbyhs4.r5b2_on_x5;
+print,text="acbyh4.l5b1   = 0;";
+print,text="acbyh4.r5b2   = 0;";
+printf,text="acbch5.r5b1  := %+16.9e * on_x5;",value=acbch5.r5b1_on_x5;
+printf,text="acbch5.l5b2  := %+16.9e * on_x5;",value=acbch5.l5b2_on_x5;
+printf,text="acbch6.l5b1  := %+16.9e * on_x5;",value=acbch6.l5b1_on_x5;
+printf,text="acbch6.r5b2  := %+16.9e * on_x5;",value=acbch6.r5b2_on_x5;
+print,text="acbch7.r5b1   = 0;";
+print,text="acbch7.l5b2   = 0;";
+} else {
+printf,text="acbyhs4.l5b1 := %+16.9e * on_x5   %+16.9e * on_o5;",value=acbyhs4.l5b1_on_x5,acbyhs4.l5b1_on_o5;
+printf,text="acbyhs4.r5b1 := %+16.9e * on_x5   %+16.9e * on_o5;",value=acbyhs4.r5b1_on_x5,acbyhs4.r5b1_on_o5;
+printf,text="acbyhs4.l5b2 := %+16.9e * on_x5   %+16.9e * on_o5;",value=acbyhs4.l5b2_on_x5,acbyhs4.l5b2_on_o5;
+printf,text="acbyhs4.r5b2 := %+16.9e * on_x5   %+16.9e * on_o5;",value=acbyhs4.r5b2_on_x5,acbyhs4.r5b2_on_o5;
+print,text="acbyh4.l5b1   = 0;";
+print,text="acbyh4.r5b2   = 0;";
+printf,text="acbch5.r5b1  := %+16.9e * on_x5   %+16.9e * on_o5;",value=acbch5.r5b1_on_x5,acbch5.r5b1_on_o5;
+printf,text="acbch5.l5b2  := %+16.9e * on_x5   %+16.9e * on_o5;",value=acbch5.l5b2_on_x5,acbch5.l5b2_on_o5;
+printf,text="acbch6.l5b1  := %+16.9e * on_x5   %+16.9e * on_o5;",value=acbch6.l5b1_on_x5,acbch6.l5b1_on_o5;
+printf,text="acbch6.r5b2  := %+16.9e * on_x5   %+16.9e * on_o5;",value=acbch6.r5b2_on_x5,acbch6.r5b2_on_o5;
+print,text="acbch7.r5b1   = 0;";
+print,text="acbch7.l5b2   = 0;";
+};
+print,text="";
+
+
+printf,text="acbxv1.l5    := %+16.9e * on_sep5;",value=acbxv1.l5_on_sep5   ;
+printf,text="acbxv1.r5    := %+16.9e * on_sep5;",value=acbxv1.r5_on_sep5   ;
+printf,text="acbxv2.l5    := %+16.9e * on_sep5;",value=acbxv2.l5_on_sep5   ;
+printf,text="acbxv2.r5    := %+16.9e * on_sep5;",value=acbxv2.r5_on_sep5   ;
+printf,text="acbxv3.l5    := %+16.9e * on_sep5;",value=acbxv3.l5_on_sep5   ;
+printf,text="acbxv3.r5    := %+16.9e * on_sep5;",value=acbxv3.r5_on_sep5   ;
+if (py_on_a5==0) {
+printf,text="acbyvs4.l5b1 := %+16.9e * on_sep5;",value=acbyvs4.l5b1_on_sep5;
+printf,text="acbyvs4.r5b1 := %+16.9e * on_sep5;",value=acbyvs4.r5b1_on_sep5;
+printf,text="acbyvs4.l5b2 := %+16.9e * on_sep5;",value=acbyvs4.l5b2_on_sep5;
+printf,text="acbyvs4.r5b2 := %+16.9e * on_sep5;",value=acbyvs4.r5b2_on_sep5;
+print, text="acbyv4.r5b1   = 0;";
+print, text="acbyv4.l5b2   = 0;";
+printf,text="acbcv5.l5b1  := %+16.9e * on_sep5;",value=acbcv5.l5b1_on_sep5;
+printf,text="acbcv5.r5b2  := %+16.9e * on_sep5;",value=acbcv5.r5b2_on_sep5;
+printf,text="acbcv6.r5b1  := %+16.9e * on_sep5;",value=acbcv6.r5b1_on_sep5;
+printf,text="acbcv6.l5b2  := %+16.9e * on_sep5;",value=acbcv6.l5b2_on_sep5;
+} else {
+printf,text="acbyvs4.l5b1 := %+16.9e * on_sep5 %+16.9e * on_a5;",value=acbyvs4.l5b1_on_sep5,acbyvs4.l5b1_on_a5;
+printf,text="acbyvs4.r5b1 := %+16.9e * on_sep5 %+16.9e * on_a5;",value=acbyvs4.r5b1_on_sep5,acbyvs4.r5b1_on_a5;
+printf,text="acbyvs4.l5b2 := %+16.9e * on_sep5 %+16.9e * on_a5;",value=acbyvs4.l5b2_on_sep5,acbyvs4.l5b2_on_a5;
+printf,text="acbyvs4.r5b2 := %+16.9e * on_sep5 %+16.9e * on_a5;",value=acbyvs4.r5b2_on_sep5,acbyvs4.r5b2_on_a5;
+print, text="acbyv4.r5b1   = 0;";
+print, text="acbyv4.l5b2   = 0;";
+printf,text="acbcv5.l5b1  := %+16.9e * on_sep5 %+16.9e * on_a5;",value=acbcv5.l5b1_on_sep5,acbcv5.l5b1_on_a5;
+printf,text="acbcv5.r5b2  := %+16.9e * on_sep5 %+16.9e * on_a5;",value=acbcv5.r5b2_on_sep5,acbcv5.r5b2_on_a5;
+printf,text="acbcv6.r5b1  := %+16.9e * on_sep5 %+16.9e * on_a5;",value=acbcv6.r5b1_on_sep5,acbcv6.r5b1_on_a5;
+printf,text="acbcv6.l5b2  := %+16.9e * on_sep5 %+16.9e * on_a5;",value=acbcv6.l5b2_on_sep5,acbcv6.l5b2_on_a5;
+};
+print, text="acbcv7.l5b1   = 0;";
+print, text="acbcv7.r5b2   = 0;";
+print,text="";
