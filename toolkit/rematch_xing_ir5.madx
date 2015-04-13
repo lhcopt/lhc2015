@@ -15,6 +15,8 @@ limitMCBW :=  80.1400e-6*scale0;
 !acbx_x= 1.000e-6;
 !acbx_s= 5.000e-6;
 
+on_sep5_ref=on_sep5;on_x5_ref=on_x5;on_o5_ref=on_o5;on_a5_ref=on_a5;
+
 
 xip5b1 := x_on_o5   * on_o5;
 xip5b2 := x_on_o5   * on_o5;
@@ -64,6 +66,7 @@ acbch7.l5b2=0;
 acbch7.r5b1=0;
 
 ! crossing
+scale0=1/abs(on_x5_ref);
 on_sep5=0;on_x5=1;on_o5=0;
 acbxh1.l5_on_x5  = acbx_x5*px_on_x5;
 acbxh1.r5_on_x5  =-acbx_x5*px_on_x5;
@@ -95,7 +98,7 @@ tarir5_x5=tar;
 
 
 ! offset
-
+scale0=1/abs(on_o5_ref);
 acbxv1.l5_on_o5=  0;
 acbxv1.r5_on_o5=  0;
 acbxv2.l5_on_o5=  0;
@@ -137,6 +140,7 @@ tarir5_o5=tar;
 
 
 ! separation
+scale0=1/abs(on_sep5_ref);
 on_sep5=1;on_x5=0;on_o5=0;
 acbxv1.l5_on_sep5=  acbx_sep5*y_on_sep5;
 acbxv1.r5_on_sep5=  acbx_sep5*y_on_sep5;
@@ -180,31 +184,32 @@ refyip5b2=table(twiss,ip5, y);
 refpxip5b2=table(twiss,ip5,px);
 on_sep5=0;on_x5=0;on_o5=0;on_a5=0;
 
+on_sep5=on_sep5_ref;on_x5=on_x5_ref;on_o5=on_o5_ref;on_a5=on_a5_ref;
 
-value,acbyhs4.l5b1_on_o5   / limitMCBY*100;
-value,acbch6.l5b1_on_o5    / limitMCBC*100;
-value,acbyhs4.r5b1_on_o5   / limitMCBY*100;
-value,acbch5.r5b1_on_o5    / limitMCBC*100;
-value,acbyhs4.l5b2_on_o5   / limitMCBY*100;
-value,acbch5.l5b2_on_o5    / limitMCBC*100;
-value,acbyhs4.r5b2_on_o5   / limitMCBY*100;
-value,acbch6.r5b2_on_o5    / limitMCBC*100;
-value,acbyhs4.l5b1_on_x5   / limitMCBY*100;
-value,acbch6.l5b1_on_x5    / limitMCBC*100;
-value,acbyhs4.r5b1_on_x5   / limitMCBY*100;
-value,acbch5.r5b1_on_x5    / limitMCBC*100;
-value,acbyhs4.l5b2_on_x5   / limitMCBY*100;
-value,acbch5.l5b2_on_x5    / limitMCBC*100;
-value,acbyhs4.r5b2_on_x5   / limitMCBY*100;
-value,acbch6.r5b2_on_x5    / limitMCBC*100;
-value,acbcv5.l5b1_on_sep5  / limitMCBC*100;
-value,acbyvs4.l5b1_on_sep5 / limitMCBY*100;
-value,acbyvs4.r5b1_on_sep5 / limitMCBY*100;
-value,acbcv6.r5b1_on_sep5  / limitMCBC*100;
-value,acbyvs4.l5b2_on_sep5 / limitMCBY*100;
-value,acbcv6.l5b2_on_sep5  / limitMCBC*100;
-value,acbyvs4.r5b2_on_sep5 / limitMCBY*100;
-value,acbcv5.r5b2_on_sep5  / limitMCBC*100;
+value,acbyhs4.l5b1_on_o5   / limitMCBY*100*on_o5;
+value,acbch6.l5b1_on_o5    / limitMCBC*100*on_o5;
+value,acbyhs4.r5b1_on_o5   / limitMCBY*100*on_o5;
+value,acbch5.r5b1_on_o5    / limitMCBC*100*on_o5;
+value,acbyhs4.l5b2_on_o5   / limitMCBY*100*on_o5;
+value,acbch5.l5b2_on_o5    / limitMCBC*100*on_o5;
+value,acbyhs4.r5b2_on_o5   / limitMCBY*100*on_o5;
+value,acbch6.r5b2_on_o5    / limitMCBC*100*on_o5;
+value,acbyhs4.l5b1_on_x5   / limitMCBY*100*on_x5;
+value,acbch6.l5b1_on_x5    / limitMCBC*100*on_x5;
+value,acbyhs4.r5b1_on_x5   / limitMCBY*100*on_x5;
+value,acbch5.r5b1_on_x5    / limitMCBC*100*on_x5;
+value,acbyhs4.l5b2_on_x5   / limitMCBY*100*on_x5;
+value,acbch5.l5b2_on_x5    / limitMCBC*100*on_x5;
+value,acbyhs4.r5b2_on_x5   / limitMCBY*100*on_x5;
+value,acbch6.r5b2_on_x5    / limitMCBC*100*on_x5;
+value,acbcv5.l5b1_on_sep5  / limitMCBC*100*on_sep5;
+value,acbyvs4.l5b1_on_sep5 / limitMCBY*100*on_sep5;
+value,acbyvs4.r5b1_on_sep5 / limitMCBY*100*on_sep5;
+value,acbcv6.r5b1_on_sep5  / limitMCBC*100*on_sep5;
+value,acbyvs4.l5b2_on_sep5 / limitMCBY*100*on_sep5;
+value,acbcv6.l5b2_on_sep5  / limitMCBC*100*on_sep5;
+value,acbyvs4.r5b2_on_sep5 / limitMCBY*100*on_sep5;
+value,acbcv5.r5b2_on_sep5  / limitMCBC*100*on_sep5;
 
 value,tarir5_o5,tarir5_x5,tarir5_sep5;
 

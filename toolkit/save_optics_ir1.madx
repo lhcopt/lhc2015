@@ -20,9 +20,9 @@ printf,text="py_on_x1 =%16.9f;"  ,value=py_on_x1;
 printf,text="x_on_sep1=%16.9f;"  ,value=x_on_sep1;
 printf,text="y_on_o1  =%16.9f;"  ,value=y_on_o1;
 !printf,text="px_on_a1 =%16.9f;"  ,value=px_on_a1;
-acbx_x1n=acbx_x1*py_on_x1;acbx_sep1n=acbx_sep1*x_on_sep1;
-printf,text="acbx_x1  =%13.6e/(%13.6e);",value=acbx_x1n,py_on_x1;
-printf,text="acbx_sep1=%13.6e/(%13.6e);",value=acbx_sep1n,x_on_sep1;
+acbx_x1n=acbx_x1*170e-6;acbx_sep1n=acbx_sep1*0.002;
+printf,text="acbx_x1  =%13.6e/170e-6;",value=acbx_x1n;
+printf,text="acbx_sep1=%13.6e/0.002;",value=acbx_sep1n;
 print,text="";
 
 

@@ -21,9 +21,9 @@ printf,text="px_on_x8 =%16.9f;"  ,value=px_on_x8;
 printf,text="y_on_sep8=%16.9f;"  ,value=y_on_sep8;
 printf,text="x_on_o8  =%16.9f;"  ,value=x_on_o8;
 printf,text="py_on_a8 =%16.9f;"  ,value=py_on_a8;
-acbx_x8n=acbx_x8*px_on_x8;acbx_sep8n=acbx_sep8*y_on_sep8;
-printf,text="acbx_x8  =%16.6e/(%16.6e);",value=acbx_x8n,px_on_x8;
-printf,text="acbx_sep8=%16.6e/(%16.6e);",value=acbx_sep8n,y_on_sep8;
+acbx_x8n=acbx_x8*170e-6;acbx_sep8n=acbx_sep8*0.002;
+printf,text="acbx_x8  =%16.6e/170e-6;",value=acbx_x8n;
+printf,text="acbx_sep8=%16.6e/0.002;",value=acbx_sep8n;
 print,text="";
 
 

@@ -8,6 +8,9 @@ limitMCBC :=  89.8700e-6*scale0;
 limitMCBW :=  80.1400e-6*scale0;
 
 
+on_sep1_ref=on_sep1;on_x1_ref=on_x1;on_o1_ref=on_o1;on_a1_ref=on_a1;
+
+
 !ttt2:=(NRJ-450)/6050;
 
 !acbx_x= 3.617e-6* (1- ttt2) + 13.5e-6 * ttt2;
@@ -68,6 +71,7 @@ seqedit,sequence=lhcb1; cycle,start=s.ds.l3.b1; flatten; endedit;
 seqedit,sequence=lhcb2; cycle,start=s.ds.l3.b2; flatten; endedit;
 
 
+scale0=1/abs(on_sep1_ref);
 ! Separation
 on_sep1=1;on_x1=0;on_o1=0;
 acbxh1.l1_on_sep1  =acbx_sep1*x_on_sep1;
@@ -98,6 +102,7 @@ Endmatch;
 tarir1_sep1=tar;
 
 ! Crossing
+scale0=1/abs(on_x1_ref);
 on_sep1=0;on_x1=1;on_o1=0;
 acbxv1.l1_on_x1=  acbx_x1*py_on_x1;
 acbxv1.r1_on_x1= -acbx_x1*py_on_x1;
@@ -128,6 +133,7 @@ tarir1_x1=tar;
 
 
 ! Offset
+scale0=1/abs(on_o1_ref);
 acbxv1.l1_on_o1=  0;
 acbxv1.r1_on_o1=  0;
 acbxv2.l1_on_o1=  0;
@@ -188,32 +194,34 @@ refpxip1b2=table(twiss,ip1,px);
 on_sep1=0;on_x1=0;on_o1=0;on_a1=0;
 
 
+on_sep1=on_sep1_ref;on_x1=on_x1_ref;on_o1=on_o1_ref;on_a1=on_a1_ref;
 
 
-value,acbcv5.l1b1_on_o1    / limitMCBC*100;
-value,acbyvs4.l1b1_on_o1   / limitMCBY*100;
-value,acbyvs4.r1b1_on_o1   / limitMCBY*100;
-value,acbcv6.r1b1_on_o1    / limitMCBC*100;
-value,acbyvs4.l1b2_on_o1   / limitMCBY*100;
-value,acbcv6.l1b2_on_o1    / limitMCBC*100;
-value,acbyvs4.r1b2_on_o1   / limitMCBY*100;
-value,acbcv5.r1b2_on_o1    / limitMCBC*100;
-value,acbcv5.l1b1_on_x1    / limitMCBC*100;
-value,acbyvs4.l1b1_on_x1   / limitMCBY*100;
-value,acbyvs4.r1b1_on_x1   / limitMCBY*100;
-value,acbcv6.r1b1_on_x1    / limitMCBC*100;
-value,acbyvs4.l1b2_on_x1   / limitMCBY*100;
-value,acbcv6.l1b2_on_x1    / limitMCBC*100;
-value,acbyvs4.r1b2_on_x1   / limitMCBY*100;
-value,acbcv5.r1b2_on_x1    / limitMCBC*100;
-value,acbyhs4.l1b1_on_sep1 / limitMCBY*100;
-value,acbch6.l1b1_on_sep1  / limitMCBC*100;
-value,acbyhs4.r1b1_on_sep1 / limitMCBY*100;
-value,acbch5.r1b1_on_sep1  / limitMCBC*100;
-value,acbyhs4.l1b2_on_sep1 / limitMCBY*100;
-value,acbch5.l1b2_on_sep1  / limitMCBC*100;
-value,acbyhs4.r1b2_on_sep1 / limitMCBY*100;
-value,acbch6.r1b2_on_sep1  / limitMCBC*100;
+
+value,acbcv5.l1b1_on_o1    / limitMCBC*100*on_o1;
+value,acbyvs4.l1b1_on_o1   / limitMCBY*100*on_o1;
+value,acbyvs4.r1b1_on_o1   / limitMCBY*100*on_o1;
+value,acbcv6.r1b1_on_o1    / limitMCBC*100*on_o1;
+value,acbyvs4.l1b2_on_o1   / limitMCBY*100*on_o1;
+value,acbcv6.l1b2_on_o1    / limitMCBC*100*on_o1;
+value,acbyvs4.r1b2_on_o1   / limitMCBY*100*on_o1;
+value,acbcv5.r1b2_on_o1    / limitMCBC*100*on_o1;
+value,acbcv5.l1b1_on_x1    / limitMCBC*100*on_x1;
+value,acbyvs4.l1b1_on_x1   / limitMCBY*100*on_x1;
+value,acbyvs4.r1b1_on_x1   / limitMCBY*100*on_x1;
+value,acbcv6.r1b1_on_x1    / limitMCBC*100*on_x1;
+value,acbyvs4.l1b2_on_x1   / limitMCBY*100*on_x1;
+value,acbcv6.l1b2_on_x1    / limitMCBC*100*on_x1;
+value,acbyvs4.r1b2_on_x1   / limitMCBY*100*on_x1;
+value,acbcv5.r1b2_on_x1    / limitMCBC*100*on_x1;
+value,acbyhs4.l1b1_on_sep1 / limitMCBY*100*on_sep1;
+value,acbch6.l1b1_on_sep1  / limitMCBC*100*on_sep1;
+value,acbyhs4.r1b1_on_sep1 / limitMCBY*100*on_sep1;
+value,acbch5.r1b1_on_sep1  / limitMCBC*100*on_sep1;
+value,acbyhs4.l1b2_on_sep1 / limitMCBY*100*on_sep1;
+value,acbch5.l1b2_on_sep1  / limitMCBC*100*on_sep1;
+value,acbyhs4.r1b2_on_sep1 / limitMCBY*100*on_sep1;
+value,acbch6.r1b2_on_sep1  / limitMCBC*100*on_sep1;
 
 value,tarir1_o1,tarir1_x1,tarir1_sep1;
 
