@@ -1,0 +1,73 @@
+option, warn,info;
+system,"rm -rf temp"; system,"mkdir temp";
+!system,"ln -fns /afs/cern.ch/eng/lhc/optics/runII/2015 db5";
+system,"ln -fns ../ db5";
+
+Option, -echo,-warn,-info;
+call,file="db5/lhc_as-built.seq";
+call,file="db5/toolkit/macro.madx";
+call,file="db5/toolkit/optics_log.madx";
+Option, -echo,warn,-info;
+
+NRJ=6500;
+Beam,particle=proton,energy=NRJ,sequence=lhcb1,bv= 1;
+Beam,particle=proton,energy=NRJ,sequence=lhcb2,bv=-1;
+
+call,file="db5/opt_inj_colltunes.madx";
+exec,crossing_disable;
+exec,check_ip(b1); exec,check_ip(b2);
+
+call,file="db5/toolkit/slice.madx";
+call,file="db5/Misc/mq_thin.madx";
+
+
+gen_optics(bbb): macro={
+exec,crossing_disable;
+call,file="db5/toolkit/rematch_ir1b12.madx";
+call,file="db5/toolkit/rematch_xing_ir1.madx";
+value,tarir1b12,tarir1_o1,tarir1_x1,tarir1_sep1;
+if (tarir1b12+tarir1_o1+tarir1_x1+tarir1_sep1>1e-16){stop;};
+system,"rm IR1/ir1_bbb_thin.madx";
+option,-echo, -info;assign, echo="IR1/ir1_bbb_thin.madx";
+call,file="db5/toolkit/save_optics_ir1.madx";
+option,-echo,-info;assign, echo=terminal;
+system,"db5/toolkit/split_madx_lines IR1/ir1_bbb_thin.madx";
+call,file="IR1/ir1_bbb_thin.madx";
+};
+
+jac_calls=10;
+
+!Low beta squeeze
+system,"cp IR1/ir1_11mto25cm.tfs  ir1_11mto25cm_new.tfs";
+exec,read_opticstbl(ir1,ir1lb_old,ir1_11mto25cm_new.tfs);
+exec,make_opticstbl_ir1(ir1lb_newthin);
+bbb=11000;nnn=1;
+on_x1_ref=170;on_sep1_ref=2;on_o1_ref=0.5;
+while(bbb>250){
+  exec,load_optics(ir1lb_old,$nnn);
+  acbx_sep1=acbxh1.l1_on_sep1/x_on_sep1;
+  acbx_x1=acbxv1.l1_on_x1/py_on_x1;
+  bbb=round(betxip1b1*1000);
+  exec,gen_optics($bbb);
+  exec,store_optics(ir1lb_newthin);
+  write,table=ir1lb_newthin,file="IR1/ir1_11mto25cm_thin.tfs";
+  nnn=nnn+1;
+};
+
+!High beta squeeze
+system,"cp IR1/ir1_12.6mto90m.tfs ir1_12.6mto90m_new.tfs";
+exec,read_opticstbl(ir1,ir1hb_old,ir1_12.6mto90m_new.tfs);
+exec,make_opticstbl_ir1(ir1hb_newthin);
+on_x1_ref=50;on_sep1_ref=1;on_o1_ref=0.5;
+bbb=11000;nnn=1;
+while(bbb<90000){
+  exec,load_optics(ir1hb_old,$nnn);
+  acbx_sep1=acbxh1.l1_on_sep1/x_on_sep1;
+  acbx_x1=acbxv1.l1_on_x1/py_on_x1;
+  bbb=round(betxip1b1*1000);
+  exec,gen_optics($bbb);
+  exec,store_optics(ir1hb_newthin);
+  write,table=ir1hb_newthin,file="IR1/ir1_12.6mto90m_thin.tfs";
+  nnn=nnn+1;
+};
+

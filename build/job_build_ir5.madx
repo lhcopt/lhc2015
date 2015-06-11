@@ -1,0 +1,68 @@
+option, warn,info;
+system,"rm -rf temp"; system,"mkdir temp";
+!system,"ln -fns /afs/cern.ch/eng/lhc/optics/runII/2015 db5";
+system,"ln -fns ../ db5";
+
+Option, -echo,-warn,-info;
+call,file="db5/lhc_as-built.seq";
+call,file="db5/toolkit/macro.madx";
+call,file="db5/toolkit/optics_log.madx";
+Option, -echo,warn,-info;
+
+NRJ=6500;
+Beam,particle=proton,energy=NRJ,sequence=lhcb1,bv= 1;
+Beam,particle=proton,energy=NRJ,sequence=lhcb2,bv=-1;
+
+call,file="db5/opt_inj_colltunes.madx";
+exec,crossing_disable;
+exec,check_ip(b1); exec,check_ip(b2);
+
+! start
+
+gen_optics(bbb): macro={
+exec,crossing_disable;
+call,file="db5/toolkit/rematch_ir5b12.madx";
+call,file="db5/toolkit/rematch_xing_ir5.madx";
+value,tarir5b12,tarir5_o5,tarir5_x5,tarir5_sep5;
+if (tarir5b12+tarir5_o5+tarir5_x5+tarir5_sep5>1e-16){stop;};
+system,"rm IR5/ir5_bbb.madx";
+option,-echo, -info;assign, echo="IR5/ir5_bbb.madx";
+call,file="db5/toolkit/save_optics_ir5.madx";
+option,-echo,-info;assign, echo=terminal;
+system,"db5/toolkit/split_madx_lines IR5/ir5_bbb.madx";
+call,file="IR5/ir5_bbb.madx";
+};
+
+jac_calls=10;
+
+!Low beta squeeze
+exec,read_opticstbl(ir5,ir5lb_old,ir5_11mto25cm.tfs);
+exec,make_opticstbl_ir5(ir5lb_new);
+bbb=1e9;nnn=1;
+on_x5_ref=170;on_sep5_ref=2;on_o5_ref=0.5;
+while(bbb>250){
+  exec,load_optics(ir5lb_old,$nnn);
+  acbx_sep5=acbxv1.l5_on_sep5/y_on_sep5;
+  acbx_x5=acbxh1.l5_on_x5/px_on_x5;
+  bbb=round(betxip5b1*1000);
+  exec,gen_optics($bbb);
+  exec,store_optics(ir5lb_new);
+  write,table=ir5lb_new,file="IR5/ir5_11mto25cm.tfs";
+  nnn=nnn+1;
+};
+
+!High beta squeeze
+exec,read_opticstbl(ir5,ir5hb_old,ir5_12.6mto90m.tfs);
+exec,make_opticstbl_ir5(ir5hb_new);
+bbb=1;nnn=1;
+on_x5_ref=50;on_sep5_ref=1;on_o5_ref=0.5;
+while(bbb<90000){
+  exec,load_optics(ir5hb_old,$nnn);
+  acbx_sep5=acbxv1.l5_on_sep5/y_on_sep5;
+  acbx_x5=acbxh1.l5_on_x5/px_on_x5;
+  bbb=round(betxip5b1*1000);
+  exec,gen_optics($bbb);
+  exec,store_optics(ir5hb_new);
+  write,table=ir5hb_new,file="IR5/ir5_12.6mto90m.tfs";
+  nnn=nnn+1;
+};
