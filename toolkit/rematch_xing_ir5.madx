@@ -8,6 +8,7 @@ limitMCBC :=  89.8700e-6*scale0;
 limitMCBW :=  80.1400e-6*scale0;
 
 
+y_on_sep5=1e-3; px_on_x5=1e-6; x_on_o5=1e-3;
 !ttt2:=(NRJ-450)/6050;
 !acbx_x= 40.00e-6* (1- ttt2) + 10.00e-6 * ttt2;
 !acbx_s= 35.00e-6* (1- ttt2) + 10.00e-6 * ttt2;
@@ -15,7 +16,6 @@ limitMCBW :=  80.1400e-6*scale0;
 !acbx_x= 1.000e-6;
 !acbx_s= 5.000e-6;
 
-on_sep5_ref=on_sep5;on_x5_ref=on_x5;on_o5_ref=on_o5;on_a5_ref=on_a5;
 
 
 xip5b1 := x_on_o5   * on_o5;
@@ -185,7 +185,7 @@ refpxip5b2=table(twiss,ip5,px);
 on_sep5=0;on_x5=0;on_o5=0;on_a5=0;
 
 on_sep5=on_sep5_ref;on_x5=on_x5_ref;on_o5=on_o5_ref;on_a5=on_a5_ref;
-
+scale=1;
 value,acbyhs4.l5b1_on_o5   / limitMCBY*100*on_o5;
 value,acbch6.l5b1_on_o5    / limitMCBC*100*on_o5;
 value,acbyhs4.r5b1_on_o5   / limitMCBY*100*on_o5;

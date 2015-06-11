@@ -273,10 +273,12 @@ on_sep2=1;on_x2=1;on_o2=1;on_a2=1;
 on_sep5=1;on_x5=1;on_o5=1;on_a5=1;
 on_sep8=1;on_x8=1;on_o8=1;on_a8=1;
 
+if (py_on_x1==0){
 py_on_x1=py.ip1;x_on_sep1=x.ip1;y_on_o1=y.ip1;px_on_a1=px.ip1;
 py_on_x2=py.ip2;x_on_sep2=x.ip2;y_on_o2=y.ip2;px_on_a2=px.ip2;
 px_on_x5=px.ip5;y_on_sep5=y.ip5;x_on_o5=x.ip5;py_on_a5=py.ip5;
 px_on_x8=px.ip8;y_on_sep8=y.ip8;x_on_o8=x.ip8;py_on_a8=py.ip8;
+};
 
 acbx_sep1= acbxh1.l1/x_on_sep1; acbx_x1  = acbxv1.l1/py_on_x1;
 acbx_sep2= acbxh1.l2/x_on_sep2; acbx_x2  = acbxv1.l2/py_on_x2;

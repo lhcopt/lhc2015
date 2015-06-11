@@ -2689,6 +2689,7 @@ if (MBX.4L2->l>0) {
   select, flag=makethin, pattern=mbrb\.,   slice=4;
   select, flag=makethin, pattern=mbrc\.,   slice=4;
   select, flag=makethin, pattern=mbrs\.,   slice=4;
+  select, flag=makethin, pattern=mbh\.,    slice=4;
   select, flag=makethin, pattern=mqwa\.,   slice=4;
   select, flag=makethin, pattern=mqwb\.,   slice=4;
   select, flag=makethin, pattern=mqy\.,    slice=4;

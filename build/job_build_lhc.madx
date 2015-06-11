@@ -175,13 +175,17 @@ exec,gen_optics(opt_800_10000_800_3000);
 on_sep1=0; on_sep2=0; on_sep5=0; on_sep8=0;
 exec,gen_optics(opt_800_10000_800_3000_coll);
 
-
 ! squeeze step 12
 call,file="db5/IR1/ir1_700.madx";
 call,file="db5/IR5/ir5_700.madx";
 on_sep1=-0.55; on_sep2=2; on_sep5=0.55; on_sep8=-1;
 on_x1=-177; on_x5=177;
 exec,gen_optics(opt_700_10000_700_3000);
+
+! squeeze step 13
+call,file="db5/IR1/ir1_650.madx";
+call,file="db5/IR5/ir5_650.madx";
+exec,gen_optics(opt_650_10000_650_3000);
 
 ! squeeze step 13
 call,file="db5/IR1/ir1_600.madx";

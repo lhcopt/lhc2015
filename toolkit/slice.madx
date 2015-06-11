@@ -18,10 +18,7 @@ select, flag=makethin, pattern=mqtlh\.,  slice=2;
 select, flag=makethin, pattern=mqtli\.,  slice=2;
 select, flag=makethin, pattern=mqt\.  ,  slice=2;
 !thin lens
-beam;use,sequence=lhcb1; makethin, sequence=lhcb1;
-seqedit,sequence=lhcb1; flatten; endedit;
-beam;use,sequence=lhcb2; makethin, sequence=lhcb2;
-seqedit,sequence=lhcb2; flatten; endedit;
-
+beam;use,sequence=lhcb1; makethin, sequence=lhcb1,style=teapot;
+beam;use,sequence=lhcb2; makethin, sequence=lhcb2,style=teapot;
 is_thin=1;
 

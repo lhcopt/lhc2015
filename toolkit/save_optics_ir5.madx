@@ -1,11 +1,11 @@
 print,text="!*** IR5 Optics ***";
 
-printf,text="betxIP5b1=%11.6f; betyIP5b1=%11.6f; alfxIP5b1 =%11.6f; alfyIP5b1 =%11.6f; dxIP5b1   =%11.6f; dpxIP5b1  =%11.6f;", value=betxIP5b1,betyIP5b1,alfxIP5b1,alfyIP5b1, dxIP5b1,dpxIP5b1;
-printf,text="betxIP5b2=%11.6f; betyIP5b2=%11.6f; alfxIP5b2 =%11.6f; alfyIP5b2 =%11.6f; dxIP5b2   =%11.6f; dpxIP5b2  =%11.6f;", value=betxIP5b2,betyIP5b2,alfxIP5b2,alfyIP5b2, dxIP5b2,dpxIP5b2;
-
-printf,text="muxIP5b1 =%11.6f; muyIP5b1 =%11.6f; muxIP5b1_L=%11.6f; muyIP5b1_L=%11.6f; muxIP5b1_R=%11.6f; muyIP5b1_R=%11.6f;", value=muxIP5b1,muyIP5b1,refmuxIP5b1_L,refmuyIP5b1_L, refmuxIP5b1_R,refmuyIP5b1_R;
-printf,text="muxIP5b2 =%11.6f; muyIP5b2 =%11.6f; muxIP5b2_L=%11.6f; muyIP5b2_L=%11.6f; muxIP5b2_R=%11.6f; muyIP5b2_R=%11.6f;", value=muxIP5b2,muyIP5b2,refmuxIP5b2_L,refmuyIP5b2_L, refmuxIP5b2_R,refmuyIP5b2_R;
+printf,text="betxIP5b1 =%11.6f; betyIP5b1 =%11.6f; alfxIP5b1 =%11.6f; alfyIP5b1 =%11.6f; dxIP5b1   =%11.6f; dpxIP5b1  =%11.6f;", value=refbetxIP5b1,refbetyIP5b1,refalfxIP5b1,refalfyIP5b1,refdxIP5b1,refdpxIP5b1;
+printf,text="betxIP5b2 =%11.6f; betyIP5b2 =%11.6f; alfxIP5b2 =%11.6f; alfyIP5b2 =%11.6f; dxIP5b2   =%11.6f; dpxIP5b2  =%11.6f;", value=refbetxIP5b2,refbetyIP5b2,refalfxIP5b2,refalfyIP5b2,refdxIP5b2,refdpxIP5b2;
+printf,text="muxIP5b1  =%11.6f; muyIP5b1  =%11.6f; muxIP5b1_L=%11.6f; muyIP5b1_L=%11.6f; muxIP5b1_R=%11.6f; muyIP5b1_R=%11.6f;", value=refmuxIP5b1,refmuyIP5b1,refmuxIP5b1_L,refmuyIP5b1_L, refmuxIP5b1_R,refmuyIP5b1_R;
+printf,text="muxIP5b2  =%11.6f; muyIP5b2  =%11.6f; muxIP5b2_L=%11.6f; muyIP5b2_L=%11.6f; muxIP5b2_R=%11.6f; muyIP5b2_R=%11.6f;", value=refmuxIP5b2,refmuyIP5b2,refmuxIP5b2_L,refmuyIP5b2_L, refmuxIP5b2_R,refmuyIP5b2_R;
 print,text="";
+
 printf,text="!xip5b1 :=%16.9f*on_o5;"  ,value=refxip5b1 ;
 printf,text="!xip5b2 :=%16.9f*on_o5;"  ,value=refxip5b2 ;
 printf,text="!yip5b1 :=%16.9f*on_sep5;",value=refyip5b1 ;

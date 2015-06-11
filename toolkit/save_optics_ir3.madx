@@ -1,10 +1,9 @@
 print,text="!*** IR3 Optics ***";
 
-printf,text="betxIP3b1=%11.6f; betyIP3b1=%11.6f; alfxIP3b1 =%11.6f; alfyIP3b1 =%11.6f; dxIP3b1   =%11.6f; dpxIP3b1  =%11.6f;", value=betxIP3b1,betyIP3b1,alfxIP3b1,alfyIP3b1, dxIP3b1,dpxIP3b1;
-printf,text="betxIP3b2=%11.6f; betyIP3b2=%11.6f; alfxIP3b2 =%11.6f; alfyIP3b2 =%11.6f; dxIP3b2   =%11.6f; dpxIP3b2  =%11.6f;", value=betxIP3b2,betyIP3b2,alfxIP3b2,alfyIP3b2, dxIP3b2,dpxIP3b2;
-
-printf,text="muxIP3b1 =%11.6f; muyIP3b1 =%11.6f; muxIP3b1_L=%11.6f; muyIP3b1_L=%11.6f; muxIP3b1_R=%11.6f; muyIP3b1_R=%11.6f;", value=muxIP3b1,muyIP3b1,refmuxIP3b1_L,refmuyIP3b1_L, refmuxIP3b1_R,refmuyIP3b1_R;
-printf,text="muxIP3b2 =%11.6f; muyIP3b2 =%11.6f; muxIP3b2_L=%11.6f; muyIP3b2_L=%11.6f; muxIP3b2_R=%11.6f; muyIP3b2_R=%11.6f;", value=muxIP3b2,muyIP3b2,refmuxIP3b2_L,refmuyIP3b2_L, refmuxIP3b2_R,refmuyIP3b2_R;
+printf,text="betxIP3b1 =%11.6f; betyIP3b1 =%11.6f; alfxIP3b1 =%11.6f; alfyIP3b1 =%11.6f; dxIP3b1   =%11.6f; dpxIP3b1  =%11.6f;", value=refbetxIP3b1,refbetyIP3b1,refalfxIP3b1,refalfyIP3b1,refdxIP3b1,refdpxIP3b1;
+printf,text="betxIP3b2 =%11.6f; betyIP3b2 =%11.6f; alfxIP3b2 =%11.6f; alfyIP3b2 =%11.6f; dxIP3b2   =%11.6f; dpxIP3b2  =%11.6f;", value=refbetxIP3b2,refbetyIP3b2,refalfxIP3b2,refalfyIP3b2,refdxIP3b2,refdpxIP3b2;
+printf,text="muxIP3b1  =%11.6f; muyIP3b1  =%11.6f; muxIP3b1_L=%11.6f; muyIP3b1_L=%11.6f; muxIP3b1_R=%11.6f; muyIP3b1_R=%11.6f;", value=refmuxIP3b1,refmuyIP3b1,refmuxIP3b1_L,refmuyIP3b1_L, refmuxIP3b1_R,refmuyIP3b1_R;
+printf,text="muxIP3b2  =%11.6f; muyIP3b2  =%11.6f; muxIP3b2_L=%11.6f; muyIP3b2_L=%11.6f; muxIP3b2_R=%11.6f; muyIP3b2_R=%11.6f;", value=refmuxIP3b2,refmuyIP3b2,refmuxIP3b2_L,refmuyIP3b2_L, refmuxIP3b2_R,refmuyIP3b2_R;
 print,text="";
 
 printf,text="kq4.lr3     = %30.24f ;",value=kq4.lr3;

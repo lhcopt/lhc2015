@@ -1,18 +1,22 @@
 scale0=1;
 
-limitMCBXH:=  63.5988*1.e-6*scale0;
-limitMCBXV:=  67.0164*1.e-6*scale0;
-limitMCBY :=  96.3*1.e-6*scale0;
-limitMCB  :=  80.8*1.e-6*scale0;
-limitMCBC :=  89.87*1.e-6*scale0;
-limitMCBW :=  80.14*1.e-6*scale0;
+limitMCBXH:=  63.5988e-6*scale0;
+limitMCBXV:=  67.0164e-6*scale0;
+limitMCBY :=  96.3000e-6*scale0;
+limitMCB  :=  80.8000e-6*scale0;
+limitMCBC :=  89.8700e-6*scale0;
+limitMCBW :=  80.1400e-6*scale0;
 
 
-ttt1:=(-kqx.l2+0.009509815813)/0.00079008039;
-ttt2:=(NRJ-450)/6050;
+!ttt1:=(-kqx.l2+0.009509815813)/0.00079008039;
+!ttt2:=(NRJ-450)/6050;
 
-acbx_x= 0.000e-6* (1- ttt1) +  0.00e-6 * ttt1;
-acbx_s= 35.00e-6* (1- ttt2) + 12.25e-6 * ttt2;
+x_on_sep2=1e-3; py_on_x2=1e-6; y_on_o2=1e-3; px_on_a2=1e-6;
+
+
+!acbx_x= 0.000e-6* (1- ttt1) +  0.00e-6 * ttt1;
+!acbx_s= 35.00e-6* (1- ttt2) + 12.25e-6 * ttt2;
+
 
 
 xip2b1 := x_on_sep2  * on_sep2;
@@ -59,6 +63,8 @@ acbcv6.r2b1  =0;
 acbcv6.l2b2  =0;
 
 
+
+
 ! Separation
 on_sep2=1;on_x2=0;on_o2=0;on_a2=0;
 
@@ -68,8 +74,8 @@ acbxh2.l2_on_sep2=acbx_sep2*x_on_sep2;
 acbxh2.r2_on_sep2=acbx_sep2*x_on_sep2;
 acbxh3.l2_on_sep2=acbx_sep2*x_on_sep2;
 acbxh3.r2_on_sep2=acbx_sep2*x_on_sep2;
+scale0=1/abs(on_sep2_ref);
 
-scale0=1.0;
 Use, period= LHCB1,RANGE=S.DS.L2.B1/E.DS.R2.B1;
 Use, period= LHCB2,RANGE=S.DS.L2.B2/E.DS.R2.B2;
 Match, sequence=lhcb1,lhcb2, beta0=bir2b1,bir2b2;
@@ -101,7 +107,7 @@ acbxv2.l2_on_x2= acbx_x2*py_on_x2;
 acbxv2.r2_on_x2=-acbx_x2*py_on_x2;
 acbxv3.l2_on_x2= acbx_x2*py_on_x2;
 acbxv3.r2_on_x2=-acbx_x2*py_on_x2;
-scale0=1;
+scale0=1/abs(on_x2_ref);
 Use, period= LHCB1,RANGE=S.DS.L2.B1/E.DS.R2.B1;
 Use, period= LHCB2,RANGE=S.DS.L2.B2/E.DS.R2.B2;
 Match, sequence=lhcb1,lhcb2, beta0=bir2b1,bir2b2;
@@ -132,7 +138,7 @@ acbxv2.l2_on_a2=0;
 acbxv2.r2_on_a2=0;
 acbxv3.l2_on_a2=0;
 acbxv3.r2_on_a2=0;
-scale0=1;
+scale0=1/abs(on_a2_ref);
 Use, period= LHCB1,RANGE=S.DS.L2.B1/E.DS.R2.B1;
 Use, period= LHCB2,RANGE=S.DS.L2.B2/E.DS.R2.B2;
 Match, sequence=lhcb1,lhcb2, beta0=bir2b1,bir2b2;
@@ -163,7 +169,7 @@ acbxv2.l2_on_o2=0;
 acbxv2.r2_on_o2=0;
 acbxv3.l2_on_o2=0;
 acbxv3.r2_on_o2=0;
-scale0=1;
+scale0=1/abs(on_o2_ref);
 Use, period= LHCB1,RANGE=S.DS.L2.B1/E.DS.R2.B1;
 Use, period= LHCB2,RANGE=S.DS.L2.B2/E.DS.R2.B2;
 Match, sequence=lhcb1,lhcb2, beta0=bir2b1,bir2b2;
@@ -200,15 +206,16 @@ refyip2b2=table(twiss,ip2, y);
 refpxip2b2=table(twiss,ip2,px);
 on_sep2=0;on_x2=0;on_o2=0;on_a2=0;
 
+on_sep2=on_sep2_ref;on_x2=on_x2_ref;on_o2=on_o2_ref;on_a2=on_a2_ref;
 
-value,acbyvs4.l2b1_on_x2/limitMCBY*100;
-value,acbyvs4.r2b1_on_x2/limitMCBY*100;
-value,acbyvs5.l2b1_on_x2/limitMCBY*100;
-value,acbcvs5.r2b1_on_x2/limitMCBC*100;
-value,acbyvs4.l2b2_on_x2/limitMCBY*100;
-value,acbyvs4.r2b2_on_x2/limitMCBY*100;
-value,acbyvs5.l2b2_on_x2/limitMCBY*100;
-value,acbcvs5.r2b2_on_x2/limitMCBC*100;
+value,acbyvs4.l2b1_on_x2/limitMCBY*100*on_x2;
+value,acbyvs4.r2b1_on_x2/limitMCBY*100*on_x2;
+value,acbyvs5.l2b1_on_x2/limitMCBY*100*on_x2;
+value,acbcvs5.r2b1_on_x2/limitMCBC*100*on_x2;
+value,acbyvs4.l2b2_on_x2/limitMCBY*100*on_x2;
+value,acbyvs4.r2b2_on_x2/limitMCBY*100*on_x2;
+value,acbyvs5.l2b2_on_x2/limitMCBY*100*on_x2;
+value,acbcvs5.r2b2_on_x2/limitMCBC*100*on_x2;
 
 
 

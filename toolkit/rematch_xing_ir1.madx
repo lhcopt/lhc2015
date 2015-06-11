@@ -8,8 +8,9 @@ limitMCBC :=  89.8700e-6*scale0;
 limitMCBW :=  80.1400e-6*scale0;
 
 
-on_sep1_ref=on_sep1;on_x1_ref=on_x1;on_o1_ref=on_o1;on_a1_ref=on_a1;
+!on_sep1_ref=on_sep1;on_x1_ref=on_x1;on_o1_ref=on_o1;on_a1_ref=on_a1;
 
+x_on_sep1=1e-3; py_on_x1=1e-6; y_on_o1=1e-3;
 
 !ttt2:=(NRJ-450)/6050;
 
@@ -18,6 +19,16 @@ on_sep1_ref=on_sep1;on_x1_ref=on_x1;on_o1_ref=on_o1;on_a1_ref=on_a1;
 
 !acbx_x=  7.000e-6;
 !acbx_s=  5.000e-6;
+
+if (IP1-at>0){
+  seqedit, sequence=lhcb1; flatten;cycle, start=s.ds.l8.b1; flatten; endedit;
+  seqedit, sequence=lhcb2; flatten;cycle, start=s.ds.l8.b2; flatten; endedit;
+};
+
+if (on_holdselect==0){
+ exec,select(1,81,12,b1);
+ exec,select(1,81,12,b2);
+};
 
 
 xip1b1 := x_on_sep1  * on_sep1;
@@ -71,15 +82,18 @@ seqedit,sequence=lhcb1; cycle,start=s.ds.l3.b1; flatten; endedit;
 seqedit,sequence=lhcb2; cycle,start=s.ds.l3.b2; flatten; endedit;
 
 
-scale0=1/abs(on_sep1_ref);
+
+
 ! Separation
 on_sep1=1;on_x1=0;on_o1=0;
+value,acbxh1.l1;
 acbxh1.l1_on_sep1  =acbx_sep1*x_on_sep1;
 acbxh1.r1_on_sep1  =acbx_sep1*x_on_sep1;
 acbxh2.l1_on_sep1  =acbx_sep1*x_on_sep1;
 acbxh2.r1_on_sep1  =acbx_sep1*x_on_sep1;
 acbxh3.l1_on_sep1  =acbx_sep1*x_on_sep1;
 acbxh3.r1_on_sep1  =acbx_sep1*x_on_sep1;
+scale0=1/abs(on_sep1_ref);
 Use, period= LHCB1,RANGE=S.DS.L1.B1/E.DS.R1.B1;
 Use, period= LHCB2,RANGE=S.DS.L1.B2/E.DS.R1.B2;
 Match, sequence=lhcb1,lhcb2, beta0=bir1b1,bir1b2;
@@ -102,7 +116,7 @@ Endmatch;
 tarir1_sep1=tar;
 
 ! Crossing
-scale0=1/abs(on_x1_ref);
+
 on_sep1=0;on_x1=1;on_o1=0;
 acbxv1.l1_on_x1=  acbx_x1*py_on_x1;
 acbxv1.r1_on_x1= -acbx_x1*py_on_x1;
@@ -110,6 +124,7 @@ acbxv2.l1_on_x1=  acbx_x1*py_on_x1;
 acbxv2.r1_on_x1= -acbx_x1*py_on_x1;
 acbxv3.l1_on_x1=  acbx_x1*py_on_x1;
 acbxv3.r1_on_x1= -acbx_x1*py_on_x1;
+scale0=1/abs(on_x1_ref);
 Use, period= LHCB1,RANGE=S.DS.L1.B1/E.DS.R1.B1;
 Use, period= LHCB2,RANGE=S.DS.L1.B2/E.DS.R1.B2;
 Match, sequence=lhcb1,lhcb2, beta0=bir1b1,bir1b2;
@@ -133,7 +148,6 @@ tarir1_x1=tar;
 
 
 ! Offset
-scale0=1/abs(on_o1_ref);
 acbxv1.l1_on_o1=  0;
 acbxv1.r1_on_o1=  0;
 acbxv2.l1_on_o1=  0;
@@ -154,6 +168,7 @@ tar=0;
 on_sep1=0;on_x1=0;on_o1=1;
 acbcv5.l1b1_on_o1=1e-7;
 acbyvs4.l1b2_on_o1=1e-7;
+scale0=1/abs(on_o1_ref);
 Use, period= LHCB1,RANGE=S.DS.L1.B1/E.DS.R1.B1;
 Use, period= LHCB2,RANGE=S.DS.L1.B2/E.DS.R1.B2;
 Match, sequence=lhcb1,lhcb2, beta0=bir1b1,bir1b2;

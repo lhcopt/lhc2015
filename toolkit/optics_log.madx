@@ -324,6 +324,8 @@ make_opticstbl_ir2(ir2):macro={
     betxip2b1,betyip2b1,alfxip2b1,alfyip2b1,dxip2b1,dpxip2b1,
     betxip2b2,betyip2b2,alfxip2b2,alfyip2b2,dxip2b2,dpxip2b2,
     muxip2b1,muyip2b1, muxip2b2,muyip2b2,
+    muxip2b1_l,muyip2b1_l, muxip2b2_l,muyip2b2_l,
+    muxip2b1_r,muyip2b1_r, muxip2b2_r,muyip2b2_r,
     x_on_sep2,y_on_o2,py_on_x2,px_on_a2,
     y_on_sep2,x_on_o2,px_on_x2,py_on_a2,
     acbxh1.l2_on_x2,acbxh1.r2_on_x2,
@@ -428,6 +430,8 @@ make_opticstbl_ir4(ir4):macro={
     betxip4b1,betyip4b1,alfxip4b1,alfyip4b1,dxip4b1,dpxip4b1,
     betxip4b2,betyip4b2,alfxip4b2,alfyip4b2,dxip4b2,dpxip4b2,
     muxip4b1,muyip4b1, muxip4b2,muyip4b2,
+    muxip4b1_l,muyip4b1_l,muxip4b1_r,muyip4b1_r,
+    muxip4b2_l,muyip4b2_l,muxip4b2_r,muyip4b2_r,
     scxir5, scyir5,
     tarir4b1,tarir4b2,
     timestamp;
@@ -449,6 +453,8 @@ make_opticstbl_ir6(ir6):macro={
     betxip6b1,betyip6b1,alfxip6b1,alfyip6b1,dxip6b1,dpxip6b1,
     betxip6b2,betyip6b2,alfxip6b2,alfyip6b2,dxip6b2,dpxip6b2,
     muxip6b1,muyip6b1, muxip6b2,muyip6b2,
+    muxip6b1_l,muyip6b1_l,muxip6b1_r,muyip6b1_r,
+    muxip6b2_l,muyip6b2_l,muxip6b2_r,muyip6b2_r,
     scxir5, scyir5,
     tarir6b1,tarir6b2,
     timestamp;
@@ -467,6 +473,8 @@ make_opticstbl_ir3(ir3):macro={
     betxip3b1,betyip3b1,alfxip3b1,alfyip3b1,dxip3b1,dpxip3b1,
     betxip3b2,betyip3b2,alfxip3b2,alfyip3b2,dxip3b2,dpxip3b2,
     muxip3b1,muyip3b1, muxip3b2,muyip3b2,
+    muxip3b1_l,muyip3b1_l,muxip3b1_r,muyip3b1_r,
+    muxip3b2_l,muyip3b2_l,muxip3b2_r,muyip3b2_r,
     tarir3b1,tarir3b2,
     timestamp;
     on_opticstbl_ir3=1;value,on_opticstbl_ir3;
@@ -484,6 +492,8 @@ make_opticstbl_ir7(ir3):macro={
     betxip7b1,betyip7b1,alfxip7b1,alfyip7b1,dxip7b1,dpxip7b1,
     betxip7b2,betyip7b2,alfxip7b2,alfyip7b2,dxip7b2,dpxip7b2,
     muxip7b1,muyip7b1, muxip7b2,muyip7b2,
+    muxip7b1_l,muyip7b1_l,muxip7b1_r,muyip7b1_r,
+    muxip7b2_l,muyip7b2_l,muxip7b2_r,muyip7b2_r,
     tarir7b1,tarir7b2,
     timestamp;
     on_opticstbl_ir7=1;value,on_opticstbl_ir7;

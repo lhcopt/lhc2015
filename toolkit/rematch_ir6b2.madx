@@ -31,9 +31,9 @@ constraint,sequence=lhcb2,range=ip6,bety=betyip6b2;
 constraint,sequence=lhcb2,range=ip6,dx=dxip6b2;
 constraint,sequence=lhcb2,range=ip6,dpx=dpxip6b2;
 constraint,sequence=lhcb2,range=ip6,alfx=alfxip6b2;
-if(is_thin==0){
+!if(is_thin==0){
 constraint,sequence=lhcb2,range=ip6,alfy=alfyip6b2;
-};
+!};
 !if(is_thin==1){
 !  constraint,sequence=lhcb2,range=ip6,dx=dxip6b2,dpx =dpxip6b2;
 !};
@@ -67,7 +67,9 @@ vary, name=kq8.l6b2,    step=1.0E-6, lower= qtlimit3*scmin, upper= qtlimit3;
 vary, name=kq5.l6b2,    step=1.0E-6, lower=-qtlimit2, upper=-qtlimit2*scmin;
 vary, name=kq4.l6b2,    step=1.0E-6, lower= qtlimit2*scmin, upper= qtlimit2;
 
-!vary,name=kq4.r6b2,    step=1.0E-6, lower=-qtlimit2, upper=-qtlimit2*scmin;
+if (is_thin==1){
+vary,name=kq4.r6b2,    step=1.0E-6, lower=-qtlimit2, upper=-qtlimit2*scmin;
+};
 vary, name=kq5.r6b2,    step=1.0E-6, lower= qtlimit2*scmin, upper= qtlimit2;
 vary, name=kq8.r6b2,    step=1.0E-6, lower=-qtlimit3, upper=-qtlimit3*scmin*0.8;
 vary, name=kq9.r6b2,    step=1.0E-6, lower= qtlimit3*scmin, upper= qtlimit3;

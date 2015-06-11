@@ -59,11 +59,9 @@ constraint,sequence=lhcb2,range=e.ds.r1.b2,dx=eir1b2->dx,dpx=eir1b2->dpx;
 constraint,sequence=lhcb2,range=e.ds.r1.b2,betx=eir1b2->betx,bety=eir1b2->bety;
 
 if (is_thin==1){
-if (betxip1b1>0.40){
 constraint,sequence=lhcb1,range=IP1,mux=muxIP1b1_l,muy=muyIP1b1_l;
 constraint,sequence=lhcb2,range=IP1,mux=muxip1b2_l;
 constraint,sequence=lhcb2,range=IP1,muy=muyip1b2_l;
-};
 };
 constraint,sequence=lhcb1,range=e.ds.r1.b1,mux=muxIP1b1,muy=muyIP1b1;
 constraint,sequence=lhcb2,range=e.ds.r1.b2,mux=muxip1b2,muy=muyip1b2;

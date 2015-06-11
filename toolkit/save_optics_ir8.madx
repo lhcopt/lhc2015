@@ -1,10 +1,9 @@
 print,text="!*** IR8 Optics ***";
 
-printf,text="betxIP8b1=%11.6f; betyIP8b1=%11.6f; alfxIP8b1 =%11.6f; alfyIP8b1 =%11.6f; dxIP8b1   =%11.6f; dpxIP8b1  =%11.6f;", value=refbetxIP8b1,refbetyIP8b1,refalfxIP8b1,refalfyIP8b1, refdxIP8b1,refdpxIP8b1;
-printf,text="betxIP8b2=%11.6f; betyIP8b2=%11.6f; alfxIP8b2 =%11.6f; alfyIP8b2 =%11.6f; dxIP8b2   =%11.6f; dpxIP8b2  =%11.6f;", value=refbetxIP8b2,refbetyIP8b2,refalfxIP8b2,refalfyIP8b2, refdxIP8b2,refdpxIP8b2;
-
-printf,text="muxIP8b1 =%11.6f; muyIP8b1 =%11.6f; muxIP8b1_L=%11.6f; muyIP8b1_L=%11.6f; muxIP8b1_R=%11.6f; muyIP8b1_R=%11.6f;", value=muxIP8b1,muyIP8b1,refmuxIP8b1_L,refmuyIP8b1_L, refmuxIP8b1_R,refmuyIP8b1_R;
-printf,text="muxIP8b2 =%11.6f; muyIP8b2 =%11.6f; muxIP8b2_L=%11.6f; muyIP8b2_L=%11.6f; muxIP8b2_R=%11.6f; muyIP8b2_R=%11.6f;", value=muxIP8b2,muyIP8b2,refmuxIP8b2_L,refmuyIP8b2_L, refmuxIP8b2_R,refmuyIP8b2_R;
+printf,text="betxIP8b1 =%11.6f; betyIP8b1 =%11.6f; alfxIP8b1 =%11.6f; alfyIP8b1 =%11.6f; dxIP8b1   =%11.6f; dpxIP8b1  =%11.6f;", value=refbetxIP8b1,refbetyIP8b1,refalfxIP8b1,refalfyIP8b1,refdxIP8b1,refdpxIP8b1;
+printf,text="betxIP8b2 =%11.6f; betyIP8b2 =%11.6f; alfxIP8b2 =%11.6f; alfyIP8b2 =%11.6f; dxIP8b2   =%11.6f; dpxIP8b2  =%11.6f;", value=refbetxIP8b2,refbetyIP8b2,refalfxIP8b2,refalfyIP8b2,refdxIP8b2,refdpxIP8b2;
+printf,text="muxIP8b1  =%11.6f; muyIP8b1  =%11.6f; muxIP8b1_L=%11.6f; muyIP8b1_L=%11.6f; muxIP8b1_R=%11.6f; muyIP8b1_R=%11.6f;", value=refmuxIP8b1,refmuyIP8b1,refmuxIP8b1_L,refmuyIP8b1_L,refmuxIP8b1_R,refmuyIP8b1_R;
+printf,text="muxIP8b2  =%11.6f; muyIP8b2  =%11.6f; muxIP8b2_L=%11.6f; muyIP8b2_L=%11.6f; muxIP8b2_R=%11.6f; muyIP8b2_R=%11.6f;", value=refmuxIP8b2,refmuyIP8b2,refmuxIP8b2_L,refmuyIP8b2_L,refmuxIP8b2_R,refmuyIP8b2_R;
 print,text="";
 
 printf,text="!xip8b1 :=%16.9f*on_o8;"  ,value=refxip8b1 ;
