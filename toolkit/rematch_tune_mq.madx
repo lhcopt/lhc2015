@@ -1,5 +1,6 @@
-use,sequence=lhcb2; use,sequence=lhcb1;
-match;
+use,sequence=lhcb1;
+use,sequence=lhcb2;
+match,sequence=lhcb1,lhcb2;
 global,sequence=lhcb1, q1=Qxb1, q2=Qyb1;
 global,sequence=lhcb2, q1=Qxb2, q2=Qyb2;
 vary,   name=kqf, step=1.0E-7;
