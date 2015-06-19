@@ -30,7 +30,7 @@ if (is_thin==1){ call,file="db5/Misc/mq_thin.madx";};
 if (is_thin==0){ call,file="db5/Misc/mq.madx";};
 call,file="db5/Misc/ms.madx";
 
-if (rematch_tune_mq==1){call,file="db5/toolkit/rematch_tune.madx";};
+if (rematch_tune_mq==1){call_mq,file="db5/toolkit/rematch_tune_mq.madx";};
 if (rematch_tune==1){call,file="db5/toolkit/rematch_tune.madx";};
 
 on_sep1=on_sep1_ref;on_x1=on_x1_ref;on_o1=on_o1_ref;on_a1=on_a1_ref;

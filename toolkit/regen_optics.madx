@@ -11,8 +11,8 @@ on_sep5=0;on_x5=0;on_o5=0;on_a5=0;
 on_sep8=0;on_x8=0;on_o8=0;on_a8=0;on_lhcb=0;
 
 call,file="db5/Arc/mb.madx";
-if (is_thin==1){ call,file="db5/Arc/mq_thin.madx";};
-if (is_thin==0){ call,file="db5/Arc/mq.madx";};
+if (is_thin==1){ call,file="db5/Misc/mq_thin.madx";};
+if (is_thin==0){ call,file="db5/Misc/mq.madx";};
 call,file="db5/Arc/ms.madx";
 
 call,file="db5/toolkit/rematch_ir1b12.madx";

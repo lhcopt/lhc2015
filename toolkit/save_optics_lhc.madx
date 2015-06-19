@@ -1,9 +1,9 @@
 ! tune and chroma are matched with default crossing knobs
-! twiss at the IP are matched without crossing and without MQT trims
+! twiss at the IP are matched without crossing and without MQT trims and nominal MQ
 ! crossing normalizations are computed with all ones
 
 on_sep1_ref=on_sep1;on_x1_ref=on_x1;on_o1_ref=on_o1;on_a1_ref=on_a1;
-on_sep2_ref=on_sep2;on_x2_ref=on_x2;on_o2_ref=on_o2;on_a2_ref=on_a2;
+on_sep2_ref=on_sep2;on_x2_ref=on_x2;on_o2_ref=on_o2;on_a2_ref=on_a2; on_oe2_ref=on_oe2;
 on_sep5_ref=on_sep5;on_x5_ref=on_x5;on_o5_ref=on_o5;on_a5_ref=on_a5;
 on_sep8_ref=on_sep8;on_x8_ref=on_x8;on_o8_ref=on_o8;on_a8_ref=on_a8;
 on_alice_ref=on_alice;
@@ -52,6 +52,12 @@ kqtf.b1ref=kqtf.b1;kqtf.b2ref=kqtf.b2;
 kqtd.b1 =  0.0; kqtd.b2 =  0.0;
 kqtf.b1 =  0.0; kqtf.b2 =  0.0;
 
+kqfref=kqf; kqdref=kqd;
+if (is_thin==1){ call,file="db5/Misc/mq_thin.madx";};
+if (is_thin==0){ call,file="db5/Misc/mq.madx";};
+
+
+
 seqedit,sequence=lhcb1;flatten;cycle,start=s.cell.12.b1;endedit;
 seqedit,sequence=lhcb2;flatten;cycle,start=s.cell.12.b2;endedit;
 use,sequence=lhcb1;twiss;
@@ -76,6 +82,7 @@ kqtd.b1 = kqtd.b1ref;
 kqtd.b2 = kqtd.b2ref;
 kqtf.b1 = kqtf.b1ref;
 kqtf.b2 = kqtf.b2ref;
+kqf=kqfref; kqd=kqdref;
 
 
 on_sep1=1;on_x1=1;on_o1=1;on_a1=1;
@@ -99,6 +106,9 @@ refpxip1b1=table(twiss,ip1,px);
 refpxip2b1=table(twiss,ip2,px);
 refpyip5b1=table(twiss,ip5,py);
 refpyip8b1=table(twiss,ip8,py);
+on_o2=0; on_oe2=1;
+twiss; refyip2b1_oe2=table(twiss,ip2, y);
+on_oe2=0; on_o2=1;
 use,sequence=lhcb2;twiss;
 refpyip1b2=table(twiss,ip1,py);
 refpyip2b2=table(twiss,ip2,py);
@@ -116,6 +126,9 @@ refpxip1b2=table(twiss,ip1,px);
 refpxip2b2=table(twiss,ip2,px);
 refpyip5b2=table(twiss,ip5,py);
 refpyip8b2=table(twiss,ip8,py);
+on_o2=0; on_oe2=1;
+twiss; refyip2b2_oe2=table(twiss,ip2, y);
+on_oe2=0; on_o2=1;
 
 on_sep1=0;on_x1=0;on_o1=0;on_a1=0;
 on_sep2=0;on_x2=0;on_o2=0;on_a2=0;
@@ -175,13 +188,13 @@ on_kkkirn=0;
 };
 
 exec,copyknob(1,sep,h); exec,copyknob(1,x,v); exec,copyknob(1,o,v); exec,copyknob(1,a,h);
-exec,copyknob(2,sep,h); exec,copyknob(2,x,v); exec,copyknob(2,o,v); exec,copyknob(2,a,h);
+exec,copyknob(2,sep,h); exec,copyknob(2,x,v); exec,copyknob(2,o,v); exec,copyknob(2,a,h);  exec,copyknob(2,oe,v);
 exec,copyknob(5,sep,v); exec,copyknob(5,x,h); exec,copyknob(5,o,h); exec,copyknob(5,a,v);
 exec,copyknob(8,sep,v); exec,copyknob(8,x,h); exec,copyknob(8,o,h); exec,copyknob(8,a,v);
 
 
 on_sep1=0;on_x1=0;on_o1=0;on_a1=0;
-on_sep2=0;on_x2=0;on_o2=0;on_a2=0;
+on_sep2=0;on_x2=0;on_o2=0;on_a2=0; on_oe2=0;
 on_sep5=0;on_x5=0;on_o5=0;on_a5=0;
 on_sep8=0;on_x8=0;on_o8=0;on_a8=0;
 
@@ -207,7 +220,8 @@ printf,text="x.ip2 :=%+16.6f*on_sep2;",value=refxip2b1;
 printf,text="y.ip5 :=%+16.6f*on_sep5;",value=refyip5b1;
 printf,text="y.ip8 :=%+16.6f*on_sep8;",value=refyip8b1;
 printf,text="y.ip1 :=%+16.6f*on_o1;"  ,value=refyip1b1;
-printf,text="y.ip2 :=%+16.6f*on_o2;"  ,value=refyip2b1;
+printf,text="y.ip2 :=%+16.6f*on_o2  %+16.6f*on_oe2;",
+value=refyip2b1,refyip2b1_oe2;
 printf,text="x.ip5 :=%+16.6f*on_o5;"  ,value=refxip5b1;
 printf,text="x.ip8 :=%+16.6f*on_o8;"  ,value=refxip8b1;
 !printf,text="px.ip1:=%+16.9f*on_a1;"  ,value=refpxip1b1;
@@ -224,6 +238,7 @@ printf,text="on_o1  =%2g;",value=on_o1_ref;
 printf,text="on_x2  =%2g;",value=on_x2_ref;
 printf,text="on_sep2=%2g;",value=on_sep2_ref;
 printf,text="on_o2  =%2g;",value=on_o2_ref;
+printf,text="on_oe2 =%2g;",value=on_oe2_ref;
 printf,text="on_a2  =%2g;",value=on_a2_ref;
 printf,text="on_x5  =%2g;",value=on_x5_ref;
 printf,text="on_sep5=%2g;",value=on_sep5_ref;
@@ -403,7 +418,7 @@ option,-echo,-info;assign, echo=terminal;
 
 
 on_sep1=on_sep1_ref;on_x1=on_x1_ref;on_o1=on_o1_ref;on_a1=on_a1_ref;
-on_sep2=on_sep2_ref;on_x2=on_x2_ref;on_o2=on_o2_ref;on_a2=on_a2_ref;
+on_sep2=on_sep2_ref;on_x2=on_x2_ref;on_o2=on_o2_ref;on_a2=on_a2_ref; on_oe2=on_oe2_ref;
 on_sep5=on_sep5_ref;on_x5=on_x5_ref;on_o5=on_o5_ref;on_a5=on_a5_ref;
 on_sep8=on_sep8_ref;on_x8=on_x8_ref;on_o8=on_o8_ref;on_a8=on_a8_ref;
 on_alice=on_alice_ref;

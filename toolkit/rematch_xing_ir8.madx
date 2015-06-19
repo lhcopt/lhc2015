@@ -7,6 +7,8 @@ limitMCB  :=  80.8000e-6*scale0;
 limitMCBC :=  89.8700e-6*scale0;
 limitMCBW :=  80.1400e-6*scale0;
 
+on_sep8_aux=on_sep8;on_x8_aux=on_x8;on_o8_aux=on_o8;on_a8_aux=on_a8;
+
 y_on_sep8=1e-3; px_on_x8=1e-6; x_on_o8=1e-3; py_on_a8=1e-6;
 
 !ttt1:=(-kqx.l8+0.009509815813)/0.000758161813000001;
@@ -112,7 +114,7 @@ value,acbyvs5.r8b2_on_sep8/limitMCBY;
 
 
 
-tar_on_sep8=tar;
+tarir8_sep8=tar;
 !exec,mk_irtwiss(8,b1);system,"mv twiss_ir8b1.tfs twiss_ir8b1_on_sep8.tfs";
 !exec,mk_irtwiss(8,b2);system,"mv twiss_ir8b2.tfs twiss_ir8b2_on_sep8.tfs";
 
@@ -146,7 +148,7 @@ vary,   name=acbyvs5.r8b2_on_a8, step=1.0E-15,lower=-limitMCBY,upper=limitMCBY;
 !simplex,calls=100;
 jacobian,calls=jac_calls, tolerance=1.E-30;
 Endmatch;
-tar_on_a8=tar;
+tarir8_a8=tar;
 !exec,mk_irtwiss(8,b1);system,"mv twiss_ir8b1.tfs twiss_ir8b1_on_a8.tfs";
 !exec,mk_irtwiss(8,b2);system,"mv twiss_ir8b2.tfs twiss_ir8b2_on_a8.tfs";
 
@@ -200,7 +202,7 @@ vary,name=acbyhs5.r8b2_on_x8,step=1.0E-15,lower=-limitMCBY,upper=limitMCBY;
 !simplex,calls=100;
 jacobian,calls=jac_calls, tolerance=1.E-30;
 Endmatch;
-tar_on_x8=tar;
+tarir8_x8=tar;
 !exec,mk_irtwiss(8,b1);system,"mv twiss_ir8b1.tfs twiss_ir8b1_on_x8.tfs";
 !exec,mk_irtwiss(8,b2);system,"mv twiss_ir8b2.tfs twiss_ir8b2_on_x8.tfs";
 
@@ -244,7 +246,7 @@ vary,name=acbyhs5.r8b2_on_o8,step=1.0E-15,lower=-limitMCBY,upper=limitMCBY;
 !simplex,calls=100;
 jacobian,calls=jac_calls, tolerance=1.E-30;
 Endmatch;
-tar_on_o8=tar;
+tarir8_o8=tar;
 !exec,mk_irtwiss(8,b1);system,"mv twiss_ir8b1.tfs twiss_ir8b1_on_o8.tfs";
 !exec,mk_irtwiss(8,b2);system,"mv twiss_ir8b2.tfs twiss_ir8b2_on_o8.tfs";
 
@@ -267,10 +269,9 @@ refyip8b2=table(twiss,ip8, y);
 refpxip8b2=table(twiss,ip8,px);
 on_sep8=0;on_x8=0;on_o8=0;on_a8=0;
 
-on_sep2=on_sep2_ref;on_x2=on_x2_ref;on_o2=on_o2_ref;on_a2=on_a2_ref;
+on_sep8=on_sep8_ref;on_x8=on_x8_ref;on_o8=on_o8_ref;on_a8=on_a8_ref;
 
 scale0=1;
-
 value,acbyhs4.l8b1_on_o8/limitMCBY*100*on_o8;
 value,acbyhs4.r8b1_on_o8/limitMCBY*100*on_o8;
 value,acbchs5.l8b1_on_o8/limitMCBC*100*on_o8;
@@ -308,11 +309,12 @@ value,acbcvs5.l8b2_on_sep8/limitMCBC*100*on_sep8;
 value,acbyvs5.r8b2_on_sep8/limitMCBY*100*on_sep8;
 
 
+on_sep8=on_sep8_aux;on_x8=on_x8_aux;on_o8=on_o8_aux;on_a8=on_a8_aux;
 
 
-value,tar_on_x8,tar_on_sep8,tar_on_o8,tar_on_a8;
+value,tarir8_x8,tarir8_sep8,tarir8_o8,tarir8_a8;
 
-tarir8_cross=tar_on_sep8+tar_on_x8+tar_on_o8+tar_on_a8;
+tarir8_cross=tarir8_sep8+tarir8_x8+tarir8_o8+tarir8_a8;
 
 value,tarir8_cross;
 

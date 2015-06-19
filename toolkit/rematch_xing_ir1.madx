@@ -7,8 +7,7 @@ limitMCB  :=  80.8000e-6*scale0;
 limitMCBC :=  89.8700e-6*scale0;
 limitMCBW :=  80.1400e-6*scale0;
 
-
-!on_sep1_ref=on_sep1;on_x1_ref=on_x1;on_o1_ref=on_o1;on_a1_ref=on_a1;
+on_sep1_aux=on_sep1;on_x1_aux=on_x1;on_o1_aux=on_o1;on_a1_aux=on_a1;
 
 x_on_sep1=1e-3; py_on_x1=1e-6; y_on_o1=1e-3;
 
@@ -213,6 +212,7 @@ on_sep1=on_sep1_ref;on_x1=on_x1_ref;on_o1=on_o1_ref;on_a1=on_a1_ref;
 
 
 
+scale0=1;
 value,acbcv5.l1b1_on_o1    / limitMCBC*100*on_o1;
 value,acbyvs4.l1b1_on_o1   / limitMCBY*100*on_o1;
 value,acbyvs4.r1b1_on_o1   / limitMCBY*100*on_o1;
@@ -237,6 +237,8 @@ value,acbyhs4.l1b2_on_sep1 / limitMCBY*100*on_sep1;
 value,acbch5.l1b2_on_sep1  / limitMCBC*100*on_sep1;
 value,acbyhs4.r1b2_on_sep1 / limitMCBY*100*on_sep1;
 value,acbch6.r1b2_on_sep1  / limitMCBC*100*on_sep1;
+
+on_sep1=on_sep1_aux;on_x1=on_x1_aux;on_o1=on_o1_aux;on_a1=on_a1_aux;
 
 value,tarir1_o1,tarir1_x1,tarir1_sep1;
 

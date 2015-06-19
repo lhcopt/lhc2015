@@ -7,11 +7,12 @@ limitMCB  :=  80.8000e-6*scale0;
 limitMCBC :=  89.8700e-6*scale0;
 limitMCBW :=  80.1400e-6*scale0;
 
+on_sep2_aux=on_sep2;on_x2_aux=on_x2;on_o2_aux=on_o2;on_a2_aux=on_a2; on_oe2_aux=on_oe2;
 
 !ttt1:=(-kqx.l2+0.009509815813)/0.00079008039;
 !ttt2:=(NRJ-450)/6050;
 
-x_on_sep2=1e-3; py_on_x2=1e-6; y_on_o2=1e-3; px_on_a2=1e-6;
+x_on_sep2=1e-3; py_on_x2=1e-6; y_on_o2=1e-3; px_on_a2=1e-6; y_on_oe2=1e-3;
 
 
 !acbx_x= 0.000e-6* (1- ttt1) +  0.00e-6 * ttt1;
@@ -21,8 +22,8 @@ x_on_sep2=1e-3; py_on_x2=1e-6; y_on_o2=1e-3; px_on_a2=1e-6;
 
 xip2b1 := x_on_sep2  * on_sep2;
 xip2b2 :=-x_on_sep2  * on_sep2;
-yip2b1 := y_on_o2    * on_o2;
-yip2b2 := y_on_o2    * on_o2;
+yip2b1 := y_on_o2    * on_o2 + y_on_oe2 * on_oe2;
+yip2b2 := y_on_o2    * on_o2 + y_on_oe2 * on_oe2;
 pxip2b1:= px_on_a2   * on_a2;
 pxip2b2:= px_on_a2   * on_a2;
 pyip2b1:= py_on_x2   * on_x2;
@@ -38,35 +39,45 @@ acbyhs4.l2b1:=acbyhs4.l2b1_on_sep2 * on_sep2 + acbyhs4.l2b1_on_a2 * on_a2;
 acbyhs4.l2b2:=acbyhs4.l2b2_on_sep2 * on_sep2 + acbyhs4.l2b2_on_a2 * on_a2;
 acbyhs4.r2b1:=acbyhs4.r2b1_on_sep2 * on_sep2 + acbyhs4.r2b1_on_a2 * on_a2;
 acbyhs4.r2b2:=acbyhs4.r2b2_on_sep2 * on_sep2 + acbyhs4.r2b2_on_a2 * on_a2;
+acbyh4.r2b1  =0; acbyh4.l2b2  =0;
 acbyhs5.l2b1:=acbyhs5.l2b1_on_sep2 * on_sep2 + acbyhs5.l2b1_on_a2 * on_a2;
 acbyhs5.l2b2:=acbyhs5.l2b2_on_sep2 * on_sep2 + acbyhs5.l2b2_on_a2 * on_a2;
 acbchs5.r2b1:=acbchs5.r2b1_on_sep2 * on_sep2 + acbchs5.r2b1_on_a2 * on_a2;
 acbchs5.r2b2:=acbchs5.r2b2_on_sep2 * on_sep2 + acbchs5.r2b2_on_a2 * on_a2;
-acbch6.l2b1  =0;
-acbch6.r2b2  =0;
+acbyh5.l2b1  =0; acbch5.r2b2  =0; acbch6.l2b1  =0; acbch6.r2b2  =0;
+acbch7.l2b1  =0; acbch7.r2b2  =0; acbch8.r2b1  =0; acbch8.l2b2  =0;
+acbch9.l2b1  =0; acbch9.r2b2  =0; acbch10.l2b2  =0; acbch10.r2b1  =0;
+acbh11.l2b1  =0; acbh11.r2b2  =0; acbh12.l2b2  =0; acbh12.r2b1  =0;
+acbh13.l2b1  =0; acbh13.r2b2  =0; acbh14.r2b1  =0; acbh14.l2b2  =0;
 
-acbxv1.l2   :=acbxv1.l2_on_x2    * on_x2 + acbxv1.l2_on_o2 * on_o2;
-acbxv1.r2   :=acbxv1.r2_on_x2    * on_x2 + acbxv1.r2_on_o2 * on_o2;
-acbxv2.l2   :=acbxv2.l2_on_x2    * on_x2 + acbxv2.l2_on_o2 * on_o2;
-acbxv2.r2   :=acbxv2.r2_on_x2    * on_x2 + acbxv2.r2_on_o2 * on_o2;
-acbxv3.l2   :=acbxv3.l2_on_x2    * on_x2 + acbxv3.l2_on_o2 * on_o2;
-acbxv3.r2   :=acbxv3.r2_on_x2    * on_x2 + acbxv3.r2_on_o2 * on_o2;
-acbyvs4.l2b1:=acbyvs4.l2b1_on_x2 * on_x2 + acbyvs4.l2b1_on_o2 * on_o2;
-acbyvs4.l2b2:=acbyvs4.l2b2_on_x2 * on_x2 + acbyvs4.l2b2_on_o2 * on_o2;
-acbyvs4.r2b1:=acbyvs4.r2b1_on_x2 * on_x2 + acbyvs4.r2b1_on_o2 * on_o2;
-acbyvs4.r2b2:=acbyvs4.r2b2_on_x2 * on_x2 + acbyvs4.r2b2_on_o2 * on_o2;
-acbyvs5.l2b1:=acbyvs5.l2b1_on_x2 * on_x2 + acbyvs5.l2b1_on_o2 * on_o2;
-acbyvs5.l2b2:=acbyvs5.l2b2_on_x2 * on_x2 + acbyvs5.l2b2_on_o2 * on_o2;
-acbcvs5.r2b1:=acbcvs5.r2b1_on_x2 * on_x2 + acbcvs5.r2b1_on_o2 * on_o2;
-acbcvs5.r2b2:=acbcvs5.r2b2_on_x2 * on_x2 + acbcvs5.r2b2_on_o2 * on_o2;
-acbcv6.r2b1  =0;
-acbcv6.l2b2  =0;
+acbxv1.l2   :=acbxv1.l2_on_x2    * on_x2 + acbxv1.l2_on_o2    * on_o2 + acbxv1.l2_on_oe2    * on_oe2;
+acbxv1.r2   :=acbxv1.r2_on_x2    * on_x2 + acbxv1.r2_on_o2    * on_o2 + acbxv1.r2_on_oe2    * on_oe2;
+acbxv2.l2   :=acbxv2.l2_on_x2    * on_x2 + acbxv2.l2_on_o2    * on_o2 + acbxv2.l2_on_oe2    * on_oe2;
+acbxv2.r2   :=acbxv2.r2_on_x2    * on_x2 + acbxv2.r2_on_o2    * on_o2 + acbxv2.r2_on_oe2    * on_oe2;
+acbxv3.l2   :=acbxv3.l2_on_x2    * on_x2 + acbxv3.l2_on_o2    * on_o2 + acbxv3.l2_on_oe2    * on_oe2;
+acbxv3.r2   :=acbxv3.r2_on_x2    * on_x2 + acbxv3.r2_on_o2    * on_o2 + acbxv3.r2_on_oe2    * on_oe2;
+acbyvs4.l2b1:=acbyvs4.l2b1_on_x2 * on_x2 + acbyvs4.l2b1_on_o2 * on_o2 + acbyvs4.l2b1_on_oe2 * on_oe2;
+acbyvs4.l2b2:=acbyvs4.l2b2_on_x2 * on_x2 + acbyvs4.l2b2_on_o2 * on_o2 + acbyvs4.l2b2_on_oe2 * on_oe2;
+acbyvs4.r2b1:=acbyvs4.r2b1_on_x2 * on_x2 + acbyvs4.r2b1_on_o2 * on_o2 + acbyvs4.r2b1_on_oe2 * on_oe2;
+acbyvs4.r2b2:=acbyvs4.r2b2_on_x2 * on_x2 + acbyvs4.r2b2_on_o2 * on_o2 + acbyvs4.r2b2_on_oe2 * on_oe2;
+acbyv4.l2b1  =0; acbyv4.r2b2  =0;
+acbyvs5.l2b1:=acbyvs5.l2b1_on_x2 * on_x2 + acbyvs5.l2b1_on_o2 * on_o2 + acbyvs5.l2b1_on_oe2 * on_oe2;
+acbyvs5.l2b2:=acbyvs5.l2b2_on_x2 * on_x2 + acbyvs5.l2b2_on_o2 * on_o2 + acbyvs5.l2b2_on_oe2 * on_oe2;
+acbcvs5.r2b1:=acbcvs5.r2b1_on_x2 * on_x2 + acbcvs5.r2b1_on_o2 * on_o2 + acbcvs5.r2b1_on_oe2 * on_oe2;
+acbcvs5.r2b2:=acbcvs5.r2b2_on_x2 * on_x2 + acbcvs5.r2b2_on_o2 * on_o2 + acbcvs5.r2b2_on_oe2 * on_oe2;
 
+acbcv6.r2b2 :=acbcv6.r2b2_on_oe2* on_oe2;
+acbcv6.l2b1 :=acbcv6.l2b1_on_oe2* on_oe2;
+acbcv7.r2b1 :=acbcv7.r2b1_on_oe2 * on_oe2;
+acbcv7.l2b2 :=acbcv7.l2b2_on_oe2 * on_oe2;
+acbcv8.l2b1  =0; acbcv8.r2b2  =0; acbcv9.r2b1  =0; acbcv9.l2b2  =0;
+acbcv10.l2b1  =0; acbcv10.r2b2  =0; acbv11.r2b1  =0; acbv11.l2b2  =0;
+acbv12.l2b1  =0; acbv12.r2b2  =0; acbv13.r2b1  =0; acbv13.l2b2  =0; acbv14.l2b1  =0; acbv14.r2b2  =0;
 
 
 
 ! Separation
-on_sep2=1;on_x2=0;on_o2=0;on_a2=0;
+on_sep2=1;on_x2=0;on_o2=0;on_a2=0; on_oe2=0;
 
 acbxh1.l2_on_sep2=acbx_sep2*x_on_sep2;
 acbxh1.r2_on_sep2=acbx_sep2*x_on_sep2;
@@ -100,7 +111,7 @@ tarir2_sep2=tar;
 
 
 ! Crossing
-on_sep2=0;on_x2=1;on_o2=0;on_a2=0;
+on_sep2=0;on_x2=1;on_o2=0;on_a2=0; on_oe2=0;
 acbxv1.l2_on_x2= acbx_x2*py_on_x2;
 acbxv1.r2_on_x2=-acbx_x2*py_on_x2;
 acbxv2.l2_on_x2= acbx_x2*py_on_x2;
@@ -131,7 +142,7 @@ tarir2_x2=tar;
 !exec,mk_irtwiss(2,b2);system,"mv twiss_ir2b2.tfs twiss_ir2b2_on_x2.tfs";
 
 ! Angular Offset
-on_sep2=0;on_x2=0;on_o2=0;on_a2=1;
+on_sep2=0;on_x2=0;on_o2=0;on_a2=1; on_oe2=0;
 acbxv1.l2_on_a2=0;
 acbxv1.r2_on_a2=0;
 acbxv2.l2_on_a2=0;
@@ -157,12 +168,12 @@ vary,name=acbyhs5.l2b2_on_a2, step=1.0E-15,lower=-limitMCBY,upper=limitMCBY;
 vary,name=acbchs5.r2b2_on_a2, step=1.0E-15,lower=-limitMCBC,upper=limitMCBC;
 jacobian,calls=jac_calls, tolerance=1.E-30;
 Endmatch;
-tarir2_o2=tar;
+tarir2_a2=tar;
 !exec,mk_irtwiss(2,b1);system,"mv twiss_ir2b1.tfs twiss_ir2b1_on_a2.tfs";
 !exec,mk_irtwiss(2,b2);system,"mv twiss_ir2b2.tfs twiss_ir2b2_on_a2.tfs";
 
 ! Offset
-on_sep2=0;on_x2=0;on_o2=1;on_a2=0;
+on_sep2=0;on_x2=0;on_o2=1;on_a2=0; on_oe2=0;
 acbxv1.l2_on_o2=0;
 acbxv1.r2_on_o2=0;
 acbxv2.l2_on_o2=0;
@@ -188,26 +199,87 @@ vary,name=acbyvs5.l2b2_on_o2, step=1.0E-15,lower=-limitMCBY,upper=limitMCBY;
 vary,name=acbcvs5.r2b2_on_o2, step=1.0E-15,lower=-limitMCBC,upper=limitMCBC;
 jacobian,calls=jac_calls, tolerance=1.E-30;
 Endmatch;
-tarir2_a2=tar;
+tarir2_o2=tar;
 
 
-on_sep2=0;on_x2=0;on_o2=0;on_a2=0;
+!Extended Offset
+on_sep2=0;on_x2=0;on_o2=0;on_a2=0; on_oe2=1;
+acbxv1.l2_on_oe2=-2.458928712e-06/(-2);
+acbxv1.r2_on_oe2=+2.264964303e-06/(-2);
+acbxv2.l2_on_oe2=-2.458928712e-06/(-2);
+acbxv2.r2_on_oe2=+2.264964303e-06/(-2);
+acbxv3.l2_on_oe2=+1.600000000e-05/(-2);
+acbxv3.r2_on_oe2=-1.400000000e-05/(-2);
+acbyvs4.l2b1_on_oe2=+1.024081865e-05/(-2) *0;
+acbyvs4.l2b2_on_oe2=-2.340345695e-05/(-2);
+acbyvs4.r2b1_on_oe2=-1.038838838e-05/(-2);
+acbyvs4.r2b2_on_oe2=+5.779290064e-06/(-2) *0;
+acbyvs5.l2b1_on_oe2=+1.489940454e-005/(-2);
+acbyvs5.l2b2_on_oe2=-1.664466269e-005/(-2)*0;
+acbcvs5.r2b1_on_oe2=+2.996762231e-006/(-2)*0;
+acbcvs5.r2b2_on_oe2=+1.054946734e-005/(-2);
+scale0=1/abs(on_oe2_ref);
+Use, period= LHCB1,RANGE=S.DS.L2.B1/E.DS.R2.B1;
+Use, period= LHCB2,RANGE=S.DS.L2.B2/E.DS.R2.B2;
+Match, sequence=lhcb1,lhcb2, beta0=bir2b1,bir2b2;
+WEIGHT,     x = 1, px =  10, y = 1, py = 10;
+constraint, sequence=lhcb1,range=IP2,       y = yip2b1, py = pyip2b1;
+constraint, sequence=lhcb1,range=E.DS.R2.B1,y = 0.0, py = 0.0;
+constraint, sequence=lhcb2,range=IP2,  y = yip2b2, py = pyip2b2;
+constraint, sequence=lhcb2,range=E.DS.R2.B2,y = 0.0, py = 0.0;
+!vary, name=acbxv1.l2_on_oe2, step=1.0E-15,lower=-limitMCBXV,upper=limitMCBXV;
+!vary, name=acbxv1.r2_on_oe2, step=1.0E-15,lower=-limitMCBXV,upper=limitMCBXV;
+!vary, name=acbxv2.l2_on_oe2, step=1.0E-15,lower=-limitMCBXV,upper=limitMCBXV;
+!vary, name=acbxv2.r2_on_oe2, step=1.0E-15,lower=-limitMCBXV,upper=limitMCBXV;
+!vary, name=acbxv3.l2_on_oe2, step=1.0E-15,lower=-limitMCBXV,upper=limitMCBXV;
+!vary, name=acbxv3.r2_on_oe2, step=1.0E-15,lower=-limitMCBXV,upper=limitMCBXV;
+vary,name=acbyvs4.l2b1_on_oe2, step=1.0E-15,lower=-limitMCBY,upper=limitMCBY;
+!vary,name=acbyvs4.r2b1_on_oe2, step=1.0E-15,lower=-limitMCBY,upper=limitMCBY;
+!vary,name=acbyvs4.l2b2_on_oe2, step=1.0E-15,lower=-limitMCBY,upper=limitMCBY;
+vary,name=acbyvs4.r2b2_on_oe2, step=1.0E-15,lower=-limitMCBY,upper=limitMCBY;
+!vary,name=acbyvs5.l2b1_on_oe2, step=1.0E-15,lower=-limitMCBY,upper=limitMCBY;
+vary,name=acbcvs5.r2b1_on_oe2, step=1.0E-15,lower=-limitMCBC,upper=limitMCBC;
+vary,name=acbyvs5.l2b2_on_oe2, step=1.0E-15,lower=-limitMCBY,upper=limitMCBY;
+!vary,name=acbcvs5.r2b2_on_oe2, step=1.0E-15,lower=-limitMCBC,upper=limitMCBC;
+vary,name=acbcv6.l2b1_on_oe2, step=1.0E-15, lower=-limitMCBC,upper=limitMCBC;
+vary,name=acbcv6.r2b2_on_oe2, step=1.0E-15, lower=-limitMCBC,upper=limitMCBC;
+vary,name=acbcv7.r2b1_on_oe2, step=1.0E-15, lower=-limitMCBC,upper=limitMCBC;
+vary,name=acbcv7.l2b2_on_oe2, step=1.0E-15, lower=-limitMCBC,upper=limitMCBC;
+jacobian,calls=jac_calls, tolerance=1.E-30;
+Endmatch;
+tarir2_oe2=tar;
 
-on_sep2=1;on_x2=1;on_o2=1;on_a2=1;
+
+
+
+! check twiss
+
+on_sep2=0;on_x2=0;on_o2=0;on_a2=0; on_oe2=0;
+
+on_sep2=1;on_x2=1;on_o2=1;on_a2=1; on_oe2=0;
 use, period= lhcb1,range=s.ds.l2.b1/e.ds.r2.b1;twiss,beta0=bir2b1;
 refpyip2b1=table(twiss,ip2,py);
 refxip2b1=table(twiss,ip2, x);
 refyip2b1=table(twiss,ip2, y);
 refpxip2b1=table(twiss,ip2,px);
+on_o2=0; on_oe2=1;
+twiss,beta0=bir2b1; refyip2b1_oe2=table(twiss,ip2, y);
+on_oe2=0; on_o2=1;
 use, period= lhcb2,range=s.ds.l2.b2/e.ds.r2.b2;twiss,beta0=bir2b2;
 refpyip2b2=table(twiss,ip2,py);
 refxip2b2=table(twiss,ip2, x);
 refyip2b2=table(twiss,ip2, y);
 refpxip2b2=table(twiss,ip2,px);
-on_sep2=0;on_x2=0;on_o2=0;on_a2=0;
+on_o2=0; on_oe2=1;
+twiss,beta0=bir2b2; refyip2b2_oe2=table(twiss,ip2, y);
+on_oe2=0; on_o2=1;
+on_sep2=0;on_x2=0;on_o2=0;on_a2=0; on_oe2=0;
 
-on_sep2=on_sep2_ref;on_x2=on_x2_ref;on_o2=on_o2_ref;on_a2=on_a2_ref;
+! checking strength
 
+on_sep2=on_sep2_ref;on_x2=on_x2_ref;on_o2=on_o2_ref;on_a2=on_a2_ref; on_oe2=on_oe2_ref;
+
+scale0=1;
 value,acbyvs4.l2b1_on_x2/limitMCBY*100*on_x2;
 value,acbyvs4.r2b1_on_x2/limitMCBY*100*on_x2;
 value,acbyvs5.l2b1_on_x2/limitMCBY*100*on_x2;
@@ -217,9 +289,31 @@ value,acbyvs4.r2b2_on_x2/limitMCBY*100*on_x2;
 value,acbyvs5.l2b2_on_x2/limitMCBY*100*on_x2;
 value,acbcvs5.r2b2_on_x2/limitMCBC*100*on_x2;
 
+value,acbyvs4.l2b1_on_oe2/limitMCBY*100*on_oe2;
+value,acbyvs4.r2b1_on_oe2/limitMCBY*100*on_oe2;
+value,acbyvs5.l2b1_on_oe2/limitMCBY*100*on_oe2;
+value,acbcvs5.r2b1_on_oe2/limitMCBC*100*on_oe2;
+value,acbyvs4.l2b2_on_oe2/limitMCBY*100*on_oe2;
+value,acbyvs4.r2b2_on_oe2/limitMCBY*100*on_oe2;
+value,acbyvs5.l2b2_on_oe2/limitMCBY*100*on_oe2;
+value,acbcvs5.r2b2_on_oe2/limitMCBC*100*on_oe2;
+value,acbcv6.l2b1_on_oe2/limitMCBC*100*on_oe2;
+value,acbcv6.r2b2_on_oe2/limitMCBC*100*on_oe2;
+value,acbcv7.r2b1_on_oe2/limitMCBC*100*on_oe2;
+value,acbcv7.l2b2_on_oe2/limitMCBC*100*on_oe2;
+
+value,acbyvs4.l2b1/limitMCBY*100;
+value,acbyvs4.r2b1/limitMCBY*100;
+value,acbyvs5.l2b1/limitMCBY*100;
+value,acbcvs5.r2b1/limitMCBC*100;
+value,acbyvs4.l2b2/limitMCBY*100;
+value,acbyvs4.r2b2/limitMCBY*100;
+value,acbyvs5.l2b2/limitMCBY*100;
+value,acbcvs5.r2b2/limitMCBC*100;
 
 
+on_sep2=on_sep2_aux;on_x2=on_x2_aux;on_o2=on_o2_aux;on_a2=on_a2_aux; on_oe2=on_oe2_aux;
 
-value,tarir2_sep2,tarir2_x2,tarir2_o2,tarir2_a2;
+value,tarir2_sep2,tarir2_x2,tarir2_o2,tarir2_a2,tarir2_oe2;
 
-tarir2_cross=tarir2_sep2+tarir2_x2+tarir2_o2+tarir2_a2;
+tarir2_cross=tarir2_sep2+tarir2_x2+tarir2_o2+tarir2_a2+tarir2_oe2;

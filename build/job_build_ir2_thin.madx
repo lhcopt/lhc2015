@@ -48,7 +48,7 @@ exec,make_opticstbl_ir2(highbet);
 
 bbb=1;nnn=1;
 while(bbb<30000){
-  on_x2_ref=170;on_sep2_ref=2;on_o2_ref=0.1; on_a2_ref=40;
+  on_x2_ref=170;on_sep2_ref=2;on_o2_ref=0.1; on_a2_ref=40; on_oe2_ref=2;
   exec,load_optics(highbetold,$nnn);
   acbx_sep2=acbxh1.l2_on_sep2/x_on_sep2;
   acbx_x2=acbxv1.l2_on_x2/py_on_x2;
