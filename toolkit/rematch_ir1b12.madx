@@ -277,6 +277,7 @@ KQ6.R1b2=KQ6.R1b2;
 exec,mk_irtwiss(1,b1);
 exec,mk_irtwiss(1,b2);
 
+if (is_thin==0){
 get_betmax(name,xy): macro= {
 bet=table(twiss,name,betxy);
 alf=table(twiss,name,alfxy);
@@ -288,6 +289,7 @@ exec,get_betmax(MQXA.3L1,x);
 exec,get_betmax(MQXB.B2L1,y);
 exec,get_betmax(MQXB.A2L1,x);
 exec,get_betmax(MQXA.3L1,y);
+};
 
 betx_mcby_ref=table(twiss,MCBYH.A4R1.B2,betx);
 bety_mcby_ref=table(twiss,MCBYH.A4R1.B2,bety);

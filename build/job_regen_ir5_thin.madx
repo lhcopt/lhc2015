@@ -30,19 +30,19 @@ exec,crossing_disable;
 call,file="db5/toolkit/rematch_ir5b12.madx";
 call,file="db5/toolkit/rematch_xing_ir5.madx";
 value,tarir5b12,tarir5_cross;
-if (tarir5b12+tarir5_cross>1e-16){return;};
-system,"rm IR5/ir5_bbb.madx";
-option,-echo, -info;assign, echo="IR5/ir5_bbb.madx";
+if (tarir5b12+tarir5_cross>1e-16){stop;};
+system,"rm IR5/ir5_bbb_thin.madx";
+option,-echo, -info;assign, echo="IR5/ir5_bbb_thin.madx";
 call,file="db5/toolkit/save_optics_ir5.madx";
 option,-echo,-info;assign, echo=terminal;
-system,"db5/toolkit/split_madx_lines IR5/ir5_bbb.madx";
-call,file="IR5/ir5_bbb.madx";
+system,"db5/toolkit/split_madx_lines IR5/ir5_bbb_thin.madx";
+call,file="IR5/ir5_bbb_thin.madx";
 };
 
 
 jac_calls=15; jac_tol=1e-21;
 
-on_x5_ref=50;on_sep5_ref=1;on_o5_ref=0.5;
+on_x5_ref=30;on_sep5_ref=1;on_o5_ref=0.5;
 exec,gen_optics(12600);
 exec,gen_optics(14500);
 exec,gen_optics(16700);

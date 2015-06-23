@@ -23,12 +23,15 @@ exec,check_ip(b1); exec,check_ip(b2);
 
 gen_optics(bbb,kkk): macro={
 call,file="IR8/ir8_bbb_kkk.madx";
+muxIP8b1  =   3.183000; muyIP8b1  =   2.974000;
+muxIP8b2  =   3.136000; muyIP8b2  =   2.782000;
+kqx.r8:=-kqx.l8;
 exec,crossing_disable;
 jac_tol=1e-23;
 call,file="db5/toolkit/rematch_ir8b12.madx";
 jac_tol=1e-25;
 call,file="db5/toolkit/rematch_xing_ir8.madx";
-value,tarir8b12,tarir8_on_o8,tarir8_on_x8,tarir8_on_sep8,tar_on_a8;
+value,tarir8b12,tarir8_cross;
 if (tarir8b12+tarir8_cross>1e-16){return;};
 system,"rm IR8/ir8_bbb_kkk.madx";
 option,-echo, -info;assign, echo="IR8/ir8_bbb_kkk.madx";
@@ -38,7 +41,7 @@ system,"db5/toolkit/split_madx_lines IR8/ir8_bbb_kkk.madx";
 call,file="IR8/ir8_bbb_kkk.madx";
 };
 
-jac_calls=10;
+jac_calls=10; jac_tol=
 on_x8_ref=170;on_sep8_ref=2;on_o8_ref=0.1; on_a8_ref=40;
 
 exec, gen_optics(10000,951);

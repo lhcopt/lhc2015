@@ -72,7 +72,7 @@ if __name__=='__main__':
 
   t1=madlang.open(fn1)
   t2=madlang.open(fn2)
-  compare_optics(fn1,fn2,prratio,prdiff)
+  compare_optics(t1,t2,prratio,prdiff)
 
 
 

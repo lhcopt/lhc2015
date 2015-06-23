@@ -35,21 +35,21 @@ call,file="IR5/ir5_bbb.madx";
 
 jac_calls=10;
 
-!!Low beta squeeze
-!exec,read_opticstbl(ir5,ir5lb_old,ir5_11mto25cm.tfs);
-!exec,make_opticstbl_ir5(ir5lb_new);
-!bbb=1e9;nnn=1;
-!on_x5_ref=170;on_sep5_ref=2;on_o5_ref=0.5;
-!while(bbb>250){
-!  exec,load_optics(ir5lb_old,$nnn);
-!  acbx_sep5=acbxv1.l5_on_sep5/y_on_sep5;
-!  acbx_x5=acbxh1.l5_on_x5/px_on_x5;
-!  bbb=round(betxip5b1*1000);
-!  exec,gen_optics($bbb);
-!  exec,store_optics(ir5lb_new);
-!  write,table=ir5lb_new,file="IR5/ir5_11mto25cm.tfs";
-!  nnn=nnn+1;
-!};
+!Low beta squeeze
+exec,read_opticstbl(ir5,ir5lb_old,ir5_11mto25cm.tfs);
+exec,make_opticstbl_ir5(ir5lb_new);
+bbb=1e9;nnn=1;
+on_x5_ref=170;on_sep5_ref=2;on_o5_ref=0.5;
+while(bbb>250){
+  exec,load_optics(ir5lb_old,$nnn);
+  acbx_sep5=acbxv1.l5_on_sep5/y_on_sep5;
+  acbx_x5=acbxh1.l5_on_x5/px_on_x5;
+  bbb=round(betxip5b1*1000);
+  exec,gen_optics($bbb);
+  exec,store_optics(ir5lb_new);
+  write,table=ir5lb_new,file="IR5/ir5_11mto25cm.tfs";
+  nnn=nnn+1;
+};
 
 !High beta squeeze
 exec,read_opticstbl(ir5,ir5hb_old,ir5_12.6mto90m.tfs);
