@@ -1,0 +1,8 @@
+
+fns=`ls IR?/ir?*thin.madx`
+
+for fn in $fns
+do
+echo  ${fn%_thin.madx}.madx $fn
+db5/toolkit/compare_opt.py  ${fn%_thin.madx}.madx $fn 1.002
+done
