@@ -30,7 +30,7 @@ if (is_thin==1){ call,file="db5/Misc/mq_thin.madx";};
 if (is_thin==0){ call,file="db5/Misc/mq.madx";};
 call,file="db5/Misc/ms.madx";
 
-if (rematch_tune_mq==1){call_mq,file="db5/toolkit/rematch_tune_mq.madx";};
+if (rematch_tune_mq==1){call,file="db5/toolkit/rematch_tune_mq.madx";};
 if (rematch_tune==1){call,file="db5/toolkit/rematch_tune.madx";};
 
 on_sep1=on_sep1_ref;on_x1=on_x1_ref;on_o1=on_o1_ref;on_a1=on_a1_ref;
@@ -227,11 +227,11 @@ on_x5= 145;on_sep5= 0.55;
 on_x8=-230;on_sep8=-1;
 
 ! squeeze vdm 1
-call,file="db5/IR1/ir1_12600_thin.madx";
-call,file="db5/IR2/ir2_12500_951_thin.madx";
-call,file="db5/IR5/ir5_12600_thin.madx";
-call,file="db5/IR8/ir8_12500_934_thin.madx";
-match_tune_mq=1; match_tune=1;
+call,file="db5/IR1/ir1_12600.madx";
+call,file="db5/IR2/ir2_12500_951.madx";
+call,file="db5/IR5/ir5_12600.madx";
+call,file="db5/IR8/ir8_12500_934.madx";
+rematch_tune_mq=1; rematch_tune=1;
 exec,gen_optics(opt_12600_12500_12600_12500);
 
 ! squeeze vdm 2
@@ -289,6 +289,7 @@ on_x1=-50 ;on_sep1=-0.55;
 on_x2= 120;on_sep2= 2;
 on_x5= 50 ;on_sep5= 0.55;
 on_x8=-230;on_sep8=-1;
+rematch_tune_mq=1; rematch_tune=1;
 
 mmoptics(bbb): macro={
 call,file="db5/IR1/ir1_bbb_thin.madx";

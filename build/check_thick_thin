@@ -1,8 +1,16 @@
 
-fns=`ls IR?/ir?*thin.madx`
+fns=`ls opt*thin.madx`
 
 for fn in $fns
 do
-echo  ${fn%_thin.madx}.madx $fn
-db5/toolkit/compare_opt.py  ${fn%_thin.madx}.madx $fn 1.002
+echo  ../${fn%_thin.madx}.madx $fn
+db5/toolkit/compare_opt.py  ../${fn%_thin.madx}.madx $fn 1.005 1e-7
+done
+
+exit
+fns=`ls IR?/ir?*thin.madx`
+for fn in $fns
+do
+echo  ../${fn%_thin.madx}.madx $fn
+db5/toolkit/compare_opt.py  ../${fn%_thin.madx}.madx $fn 1.001 1e-7
 done
