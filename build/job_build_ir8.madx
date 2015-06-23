@@ -46,7 +46,7 @@ jac_calls=10;
 exec,read_opticstbl(ir8,highbetold,ir8_10mto30m.tfs);
 exec,make_opticstbl_ir8(highbet);
 
-bbb=1;nnn=1;
+bbb=1;nnn=2;
 while(bbb<30000){
   on_x8_ref=170;on_sep8_ref=2;on_o8_ref=0.1; on_a8_ref=40;
   exec,load_optics(highbetold,$nnn);
@@ -66,7 +66,7 @@ while(bbb<30000){
 exec,read_opticstbl(ir8,lowbetold,ir8_10mto3m.tfs);
 exec,make_opticstbl_ir8(lowbet);
 
-bbb=100000;nnn=1;
+bbb=100000;nnn=2;
 while(bbb>3000){
   on_x8_ref=170;on_sep8_ref=2;on_o8_ref=0.1; on_a8_ref=40;
   exec,load_optics(lowbetold,$nnn);

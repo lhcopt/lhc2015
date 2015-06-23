@@ -55,8 +55,8 @@ while(bbb>250){
 exec,read_opticstbl(ir1,ir1hb_old,ir1_12.6mto90m.tfs);
 exec,make_opticstbl_ir1(ir1hb_new);
 bbb=1;nnn=1;
-on_x1_ref=50;on_sep1_ref=1;on_o1_ref=0.5;
-while(bbb<90000){
+on_x1_ref=20;on_sep1_ref=1;on_o1_ref=0.5;
+while(bbb<89000){
   exec,load_optics(ir1hb_old,$nnn);
   acbx_sep1=acbxh1.l1_on_sep1/x_on_sep1;
   acbx_x1=acbxv1.l1_on_x1/py_on_x1;
@@ -66,3 +66,11 @@ while(bbb<90000){
   write,table=ir1hb_new,file="IR1/ir1_12.6mto90m.tfs";
   nnn=nnn+1;
 };
+
+call,file=ir1_90000.madx;
+acbx_sep1=acbxh1.l1_on_sep1/x_on_sep1;
+acbx_x1=acbxv1.l1_on_x1/py_on_x1;
+bbb=round(betxip1b1*1000);
+exec,gen_optics($bbb);
+exec,store_optics(ir1hb_new);
+write,table=ir1hb_new,file="IR1/ir1_12.6mto90m.tfs";

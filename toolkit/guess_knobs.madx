@@ -1,10 +1,10 @@
-on_sep1_ref=on_sep1;on_x1_ref=on_x1;on_o1_ref=on_o1;on_a1_ref=on_a1;
-on_sep2_ref=on_sep2;on_x2_ref=on_x2;on_o2_ref=on_o2;on_a2_ref=on_a2;on_oe2_ref=on_oe2;
-on_sep5_ref=on_sep5;on_x5_ref=on_x5;on_o5_ref=on_o5;on_a5_ref=on_a5;
-on_sep8_ref=on_sep8;on_x8_ref=on_x8;on_o8_ref=on_o8;on_a8_ref=on_a8;
+on_sep1_aux=on_sep1;on_x1_aux=on_x1;on_o1_aux=on_o1;on_a1_aux=on_a1;
+on_sep2_aux=on_sep2;on_x2_aux=on_x2;on_o2_aux=on_o2;on_a2_aux=on_a2;on_oe2_aux=on_oe2;
+on_sep5_aux=on_sep5;on_x5_aux=on_x5;on_o5_aux=on_o5;on_a5_aux=on_a5;
+on_sep8_aux=on_sep8;on_x8_aux=on_x8;on_o8_aux=on_o8;on_a8_aux=on_a8;
 
-on_alice_ref=on_alice;
-on_lhcb_ref=on_lhcb;
+on_alice_aux=on_alice;
+on_lhcb_aux=on_lhcb;
 
 on_sep1=0;on_x1=0;on_o1=0;on_a1=0;
 on_sep2=0;on_x2=0;on_o2=0;on_a2=0; on_oe2=0;
@@ -307,9 +307,9 @@ value,py_on_x2,x_on_sep2,y_on_o2,px_on_a2,acbx_sep2,acbx_x2,y_on_oe2;
 value,px_on_x5,y_on_sep5,x_on_o5,py_on_a5,acbx_sep5,acbx_x5;
 value,px_on_x8,y_on_sep8,x_on_o8,py_on_a8,acbx_sep8,acbx_x8;
 
-on_sep1=on_sep1_ref;on_x1=on_x1_ref;on_o1=on_o1_ref;on_a1=on_a1_ref;
-on_sep2=on_sep2_ref;on_x2=on_x2_ref;on_o2=on_o2_ref;on_a2=on_a2_ref;on_oe2=on_oe2_ref;
-on_sep5=on_sep5_ref;on_x5=on_x5_ref;on_o5=on_o5_ref;on_a5=on_a5_ref;
-on_sep8=on_sep8_ref;on_x8=on_x8_ref;on_o8=on_o8_ref;on_a8=on_a8_ref;
-on_alice=on_alice_ref;
-on_lhcb=on_lhcb_ref;
+on_sep1=on_sep1_aux;on_x1=on_x1_aux;on_o1=on_o1_aux;on_a1=on_a1_aux;
+on_sep2=on_sep2_aux;on_x2=on_x2_aux;on_o2=on_o2_aux;on_a2=on_a2_aux;on_oe2=on_oe2_aux;
+on_sep5=on_sep5_aux;on_x5=on_x5_aux;on_o5=on_o5_aux;on_a5=on_a5_aux;
+on_sep8=on_sep8_aux;on_x8=on_x8_aux;on_o8=on_o8_aux;on_a8=on_a8_aux;
+on_alice=on_alice_aux;
+on_lhcb=on_lhcb_aux;

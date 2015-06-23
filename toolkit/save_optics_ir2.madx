@@ -188,10 +188,10 @@ printf,text="acbcvs5.r2b1 := %+16.9e * on_x2   %+16.9e * on_o2  %+16.9e * on_oe2
 printf,text="acbcvs5.r2b2 := %+16.9e * on_x2   %+16.9e * on_o2  %+16.9e * on_oe2;",value=acbcvs5.r2b2_on_x2,acbcvs5.r2b2_on_o2,acbcvs5.r2b2_on_oe2;
 print ,text="acbcv5.r2b1   = 0 ;";
 print ,text="acbyv5.l2b2   = 0 ;";
-print ,text="acbcv6.l2b1  := %+16.9e * on_oe2;",value=acbcv6.l2b1_on_oe2;
-print ,text="acbcv6.r2b2  := %+16.9e * on_oe2;",value=acbcv6.r2b2_on_oe2;
-print ,text="acbcv7.r2b1  := %+16.9e * on_oe2;",value=acbcv7.r2b1_on_oe2;
-print ,text="acbcv7.l2b2  := %+16.9e * on_oe2;",value=acbcv7.l2b2_on_oe2;
+printf,text="acbcv6.l2b1  := %+16.9e * on_oe2;",value=acbcv6.l2b1_on_oe2;
+printf,text="acbcv6.r2b2  := %+16.9e * on_oe2;",value=acbcv6.r2b2_on_oe2;
+printf,text="acbcv7.r2b1  := %+16.9e * on_oe2;",value=acbcv7.r2b1_on_oe2;
+printf,text="acbcv7.l2b2  := %+16.9e * on_oe2;",value=acbcv7.l2b2_on_oe2;
 };
 
 

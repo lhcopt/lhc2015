@@ -48,7 +48,7 @@ exec,make_opticstbl_ir2(highbet);
 
 bbb=1;nnn=1;
 while(bbb<30000){
-  on_x2_ref=170;on_sep2_ref=2;on_o2_ref=0.1; on_a2_ref=40; on_oe2_ref=2;
+  on_x2_ref=170;on_sep2_ref=2;on_o2_ref=0.1; on_a2_ref=40; on_oe2_ref=-2;
   exec,load_optics(highbetold,$nnn);
   acbx_sep2=acbxh1.l2_on_sep2/x_on_sep2;
   acbx_x2=acbxv1.l2_on_x2/py_on_x2;
@@ -61,3 +61,64 @@ while(bbb<30000){
   write,table=highbet,file="IR2/ir2_10mto30m_thin.tfs";
   nnn=nnn+1;
 };
+
+
+!jac_calls=10;
+!
+!load_ion(nnnn): macro={
+!on_x2_ref=120;on_sep2_ref=2;on_o2_ref=0.1; on_a2_ref=1; on_oe2_ref=-0.1;
+!call,file="ions/IR2/IP2_beta_nnnn.str";
+!betxip2b1=beta.ip2; betxip2b2=beta.ip2; betyip2b1=beta.ip2; betyip2b2=beta.ip2;
+!bbb=round(beta.ip2*1000);
+!kkk=round(kqx.l2*1e5);
+!ttt1:=(-kqx.l2+0.009509815813)/0.00079008039;
+!ttt2:=(NRJ-450)/6050;
+!acbx_x2= (1.000e-6* (1- ttt1) +  10.00e-6 * ttt1)/170e-6;
+!!acbx_sep2= 35.00e-6* (1- ttt2) + 12.25e-6 * ttt2;
+!acbx_sep2= 1.800000e-05/(0.002);
+!exec,gen_optics($bbb,$kkk);
+!exec,store_optics(lowbet);
+!write,table=lowbet,file="IR2/ir2_10mto35cm_thin.tfs";
+!};
+!
+!nrj=6500;
+!exec,make_opticstbl_ir2(lowbet);
+!exec,load_ion(10.0);
+!exec,load_ion(9.60);
+!exec,load_ion(9.20);
+!exec,load_ion(8.80);
+!exec,load_ion(8.40);
+!exec,load_ion(8.00);
+!exec,load_ion(7.60);
+!exec,load_ion(7.20);
+!exec,load_ion(6.80);
+!exec,load_ion(6.40);
+!exec,load_ion(6.00);
+!exec,load_ion(5.50);
+!exec,load_ion(5.00);
+!exec,load_ion(4.50);
+!exec,load_ion(4.00);
+!exec,load_ion(3.50);
+!exec,load_ion(3.00);
+!exec,load_ion(2.75);
+!exec,load_ion(2.50);
+!exec,load_ion(2.25);
+!exec,load_ion(2.00);
+!exec,load_ion(1.80);
+!exec,load_ion(1.60);
+!exec,load_ion(1.40);
+!exec,load_ion(1.20);
+!exec,load_ion(1.10);
+!exec,load_ion(1.00);
+!exec,load_ion(0.90);
+!exec,load_ion(0.80);
+!exec,load_ion(0.70);
+!exec,load_ion(0.65);
+!exec,load_ion(0.60);
+!exec,load_ion(0.55);
+!exec,load_ion(0.50);
+!exec,load_ion(0.45);
+!exec,load_ion(0.40);
+!exec,load_ion(0.35);
+
+

@@ -1,0 +1,98 @@
+option, warn,info;
+system,"rm -rf temp"; system,"mkdir temp";
+!system,"ln -fns /afs/cern.ch/eng/lhc/optics/runII/2015 db5";
+system,"ln -fns ../ db5";
+
+Option, -echo,-warn,-info;
+call,file="db5/lhc_as-built.seq";
+call,file="db5/toolkit/macro.madx";
+call,file="db5/toolkit/optics_log.madx";
+Option, -echo,warn,-info;
+
+NRJ=6500;
+Beam,particle=proton,energy=NRJ,sequence=lhcb1,bv= 1;
+Beam,particle=proton,energy=NRJ,sequence=lhcb2,bv=-1;
+
+call,file="db5/opt_inj_colltunes.madx";
+exec,crossing_disable;
+exec,check_ip(b1); exec,check_ip(b2);
+
+call,file="db5/toolkit/slice.madx";
+call,file="db5/Misc/mq_thin.madx";
+
+! start
+
+gen_optics(bbb): macro={
+call,file="IR1/ir1_bbb.madx";
+call,file="db5/toolkit/guess_knobs.madx";
+exec,crossing_disable;
+call,file="db5/toolkit/rematch_ir1b12.madx";
+call,file="db5/toolkit/rematch_xing_ir1.madx";
+value,tarir1b12,tarir1_cross;
+if (tarir1b12+tarir1_cross>1e-16){return;};
+system,"rm IR1/ir1_bbb_thin.madx";
+option,-echo, -info;assign, echo="IR1/ir1_bbb_thin.madx";
+call,file="db5/toolkit/save_optics_ir1.madx";
+option,-echo,-info;assign, echo=terminal;
+system,"db5/toolkit/split_madx_lines IR1/ir1_bbb_thin.madx";
+call,file="IR1/ir1_bbb_thin.madx";
+};
+
+
+jac_calls=15; jac_tol=1e-21;
+
+on_x1_ref=50;on_sep1_ref=1;on_o1_ref=0.5;
+exec,gen_optics(12600);
+exec,gen_optics(14500);
+exec,gen_optics(16700);
+exec,gen_optics(19200);
+exec,gen_optics(22000);
+exec,gen_optics(25000);
+exec,gen_optics(30000);
+exec,gen_optics(33000);
+exec,gen_optics(36000);
+exec,gen_optics(40000);
+exec,gen_optics(43000);
+exec,gen_optics(46000);
+exec,gen_optics(51000);
+exec,gen_optics(54000);
+exec,gen_optics(60000);
+exec,gen_optics(67000);
+exec,gen_optics(75000);
+exec,gen_optics(90000);
+
+on_x1_ref=170;on_sep1_ref=2;on_o1_ref=0.5;
+exec,gen_optics(11000);
+exec,gen_optics(9000);
+exec,gen_optics(7000);
+exec,gen_optics(4000);
+exec,gen_optics(3000);
+exec,gen_optics(2500);
+exec,gen_optics(2000);
+exec,gen_optics(1500);
+exec,gen_optics(1200);
+exec,gen_optics(1000);
+exec,gen_optics(900);
+exec,gen_optics(800);
+exec,gen_optics(700);
+exec,gen_optics(650);
+exec,gen_optics(600);
+exec,gen_optics(550);
+exec,gen_optics(500);
+exec,gen_optics(450);
+exec,gen_optics(400);
+exec,gen_optics(390);
+exec,gen_optics(380);
+exec,gen_optics(370);
+exec,gen_optics(360);
+exec,gen_optics(350);
+exec,gen_optics(340);
+exec,gen_optics(330);
+exec,gen_optics(320);
+exec,gen_optics(310);
+exec,gen_optics(300);
+exec,gen_optics(290);
+exec,gen_optics(280);
+exec,gen_optics(270);
+exec,gen_optics(260);
+exec,gen_optics(250);
