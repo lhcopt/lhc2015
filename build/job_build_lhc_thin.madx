@@ -19,11 +19,13 @@ on_sep5_ref=on_sep5;on_x5_ref=on_x5;on_o5_ref=on_o5;on_a5_ref=on_a5;
 on_sep8_ref=on_sep8;on_x8_ref=on_x8;on_o8_ref=on_o8;on_a8_ref=on_a8;
 on_alice_ref=on_alice;
 on_lhcb_ref=on_lhcb;
+on_oe2_ref=on_oe2;
 
 on_sep1=0;on_x1=0;on_o1=0;on_a1=0;
 on_sep2=0;on_x2=0;on_o2=0;on_a2=0;on_alice=0;
 on_sep5=0;on_x5=0;on_o5=0;on_a5=0;
 on_sep8=0;on_x8=0;on_o8=0;on_a8=0;on_lhcb=0;
+on_oe2=0;
 
 call,file="db5/Misc/mb.madx";
 if (is_thin==1){ call,file="db5/Misc/mq_thin.madx";};
@@ -39,6 +41,7 @@ on_sep5=on_sep5_ref;on_x5=on_x5_ref;on_o5=on_o5_ref;on_a5=on_a5_ref;
 on_sep8=on_sep8_ref;on_x8=on_x8_ref;on_o8=on_o8_ref;on_a8=on_a8_ref;
 on_alice=on_alice_ref;
 on_lhcb=on_lhcb_ref;
+on_oe2=on_oe2_ref;
 
 call,file="db5/toolkit/rematch_chroma.madx";
 
@@ -69,6 +72,7 @@ on_x1=-170;on_sep1=-2;on_o1=0;on_a1=0;
 on_x2= 170;on_sep2= 2;on_o2=0;on_a2=0;on_alice= 7000/NRJ;
 on_x5= 170;on_sep5= 2;on_o5=0;on_a5=0;
 on_x8=-170;on_sep8=-3.5;on_o8=0;on_a8=-40;on_lhcb=-7000/NRJ;
+on_oe2=0;
 qxb1  =  64.310000 ; qyb1  =  59.320000 ;
 qxb2  =  64.310000 ; qyb2  =  59.320000 ;
 Qpxb1 =  3.000000 ; Qpyb1 =  3.000000 ;
@@ -103,6 +107,7 @@ on_x1=-145;on_sep1=-0.55;on_o1=0;on_a1=0;
 on_x2= 120;on_sep2= 2;on_o2=0;on_a2=0;on_alice= 7000/NRJ;
 on_x5= 145;on_sep5= 0.55;on_o5=0;on_a5=0;
 on_x8=-230;on_sep8=-1;on_o8=0;on_a8=0;on_lhcb=-7000/NRJ;
+on_oe2=0;
 qxb1  =  64.310000 ; qyb1  =  59.320000 ;
 qxb2  =  64.310000 ; qyb2  =  59.320000 ;
 Qpxb1 =  3.000000 ; Qpyb1 =  3.000000 ;
@@ -174,6 +179,7 @@ exec,gen_optics(opt_900_10000_900_3000);
 ! squeeze step 11
 call,file="db5/IR1/ir1_800_thin.madx";
 call,file="db5/IR5/ir5_800_thin.madx";
+on_oe2=-2;
 exec,gen_optics(opt_800_10000_800_3000);
 on_sep1=0; on_sep2=0; on_sep5=0; on_sep8=0;
 exec,gen_optics(opt_800_10000_800_3000_coll);
@@ -225,6 +231,7 @@ on_x1=-145;on_sep1=-0.55;
 on_x2= 120;on_sep2= 2;
 on_x5= 145;on_sep5= 0.55;
 on_x8=-230;on_sep8=-1;
+on_oe2=-2;
 
 ! squeeze vdm 1
 call,file="db5/IR1/ir1_12600.madx";
