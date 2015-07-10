@@ -241,7 +241,7 @@ survey,file=temp/survey_irnirbim.tfs;
 if(FULL==0)
 {use,sequence=lhcbim,range=s.ds.lnir.bim/e.ds.rnir.bim;
 select,flag=twiss,clear;
-select,flag=twiss,column=name,s,l,angle,k1l,k2l,hkick,vkick,kick,betx,bety,dx,dy,x,y,mux,muy,
+select,flag=twiss,column=name,s,l,angle,k1l,k2l,hkick,vkick,kick,betx,bety,dx,dy,x,y,px,py,apertype,aper_1,aper_2,aper_3,aper_4,aptol_1,aptol_2,aptol_3,mux,muy,
        range=s.ds.lnir.bim/e.ds.rnir.bim;
 twiss,beta0=birnirbim,file=temp/twiss_irnirbim.tfs;
 };
@@ -249,7 +249,7 @@ twiss,beta0=birnirbim,file=temp/twiss_irnirbim.tfs;
 if(FULL==1)
 {use,sequence=lhcbim;
 select,flag=twiss,clear;
-select,flag=twiss,column=name,s,l,angle,k1l,k2l,hkick,vkick,kick,betx,bety,dx,dy,x,y,px,py,apertype,aper_1,aper_2,aper_3,aper_4,rtol,xtol,ytol,
+select,flag=twiss,column=name,s,l,angle,k1l,k2l,hkick,vkick,kick,betx,bety,dx,dy,x,y,px,py,apertype,aper_1,aper_2,aper_3,aper_4,aptol_1,aptol_2,aptol_3,mux,muy,
        range=s.ds.lnir.bim/e.ds.rnir.bim;
 twiss,file=temp/twiss_irnirbim.tfs;
 };
