@@ -68,8 +68,6 @@ while(bbb<89000){
 };
 
 call,file=ir1_90000.madx;
-acbx_sep1=acbxh1.l1_on_sep1/x_on_sep1;
-acbx_x1=acbxv1.l1_on_x1/py_on_x1;
 bbb=round(betxip1b1*1000);
 exec,gen_optics($bbb);
 exec,store_optics(ir1hb_new);
