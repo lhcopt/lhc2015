@@ -202,6 +202,11 @@ acbyvs5.l2b1_on_oe2=acbyvs5.l2b1;
 acbyvs5.l2b2_on_oe2=acbyvs5.l2b2;
 acbcvs5.r2b1_on_oe2=acbcvs5.r2b1;
 acbcvs5.r2b2_on_oe2=acbcvs5.r2b2;
+acbcv6.l2b1_on_oe2=acbcv6.l2b1;
+acbcv6.r2b2_on_oe2=acbcv6.r2b2;
+acbcv7.r2b1_on_oe2=acbcv7.r2b1;
+acbcv7.l2b2_on_oe2=acbcv7.l2b2;
+
 on_oe2=0;
 on_a2=1;
 acbxh1.l2_on_a2=acbxh1.l2;
