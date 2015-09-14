@@ -1,7 +1,6 @@
 #!/usr/bin/python
 
 
-from pyoptics import madlang
 
 def compare_optics(t1,t2,prratio=1.00001,prdiff=1e-12):
   v1=None
@@ -59,6 +58,7 @@ def compare_optics(t1,t2,prratio=1.00001,prdiff=1e-12):
 
 if __name__=='__main__':
   import sys
+  from pyoptics import madlang
   fn1=sys.argv[1]
   fn2=sys.argv[2]
 
