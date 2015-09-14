@@ -231,7 +231,7 @@ on_x1=-145;on_sep1=-0.55;
 on_x2= 120;on_sep2= 2;
 on_x5= 145;on_sep5= 0.55;
 on_x8=-230;on_sep8=-1;
-on_oe2=-2;
+on_oe2=0;
 
 ! squeeze vdm 1
 call,file="db5/IR1/ir1_12600.madx";
