@@ -2404,6 +2404,27 @@ option,-echo;
 set,format=24.12g;
 };
 
+save_optics_ir4(filename): macro = {
+print,text="printing filename";
+set,format=28.16g;
+option,-echo, -info ;assign, echo=filename;
+exec,_save_optics_ir4;
+assign,echo=terminal ;
+option,-echo;
+set,format=24.12g;
+};
+
+save_optics_ir7(filename): macro = {
+print,text="printing filename";
+set,format=28.16g;
+option,-echo, -info ;assign, echo=filename;
+exec,_save_optics_ir7;
+assign,echo=terminal ;
+option,-echo;
+set,format=24.12g;
+};
+
+
 
 
 save_optics(IRN,filename): macro = {
