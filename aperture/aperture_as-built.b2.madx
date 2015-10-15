@@ -1,25 +1,28 @@
 ! Aperture values for all elements in Beam 2
 
-! saved on 13/06/08 17:46:11 by T.Risselada
+! saved on 20/06/08 18:06:51 by T.Risselada
 ! saved on 24/07/08 16:32:00 by M.Giovannozzi: TAN aperture added
-! saved on 04/08/08 19:38:00 by M.Giovannozzi: MC*X correctors aperture added
-! saved on 05/08/08 12:07:00 by M.Giovannozzi: MCO aperture added and other missing apertures
-! saved on 06/08/08 11:38:52 by M.Giovannozzi: global cross-check
-! saved on 06/08/08 21:05:44 by M.Giovannozzi: some collimator apertures added
+! saved on 04/08/08 19:36:00 by M.Giovannozzi: MC*X correctors aperture added
+! saved on 05/08/08 19:38:00 by M.Giovannozzi: MCO aperture added and other missing apertures
+! saved on 06/08/08 11:38:02 by M.Giovannozzi: global cross-check
 ! saved on 09/08/08 11:03:32 by M.Giovannozzi: BTVSS changed to racetrack
-! saved on 25/08/08 15:08:03 by M.Giovannozzi: RF elements and collimators added
-! saved on 10/11/08 09:33:00 by M.Giovannozzi: corrected wrong orientation of nonlinear correctors in Q3 (IR5/8)
+! saved on 25/08/08 15:22:39 by M.Giovannozzi: RF elements and collimators added
+! saved on 10/11/08 09:22:00 by M.Giovannozzi: corrected wrong orientation of nonlinear correctors in Q3 (IR5/8)
+! saved on 10/11/08 14:38:00 by M.Giovannozzi: corrected wrong aperture of BTVST in IR8
 ! saved on 16/01/09 08:58:00 by M.Giovannozzi: corrected wrong orientation of MCBWV and slight changed aperture for MCBWH (IR3/7)
-! saved on 16/01/09 15:34:00 by M.Giovannozzi: corrected definition of aperture for BTVSS (MAD-X documentation issue)
+! saved on 16/01/09 15:35:00 by M.Giovannozzi: corrected definition of aperture for BTVSS (MAD-X documentation issue)
 ! saved on 19/02/09 16:36:00 by M.Giovannozzi: check of TCLIM, TCDQM, TCDDM following observations by SF
-! saved on 10/03/09 17:47:00 by M.Giovannozzi: corrected aperture of TCDDM
-! saved on 05/06/09 14:09:00 by M.Giovannozzi: corrected aperture of TCDD and added aperture for collision
-! saved on 10/06/09 16:31:00 by M.Giovannozzi: added aperture to IP1, IP5
-! saved on 29/06/09 15:09:00 by M.Giovannozzi: added aperture to IP2, IP8
-! saved on 06/10/09 12:17:00 by M.Giovannozzi: added aperture to LE
-! saved on 11/02/10 14:23:00 by M.Giovannozzi: corrected apertures of TCAPA/C as pointed out by A. Rossi
-! saved on 31/01/12 13:36:00 by M.Giovannozzi: added aperture to TCDS as agreed with SF and BG
-! saved on 11/10/13 15:54:00 by M.Giovannozzi: added aperture to BGI as agreed with BD
+! saved on 10/03/09 17:46:00 by M.Giovannozzi: corrected aperture of TCDDM
+! saved on 05/06/09 14:10:00 by M.Giovannozzi: corrected aperture of TCDD and added aperture for collision
+! saved on 10/06/09 16:32:00 by M.Giovannozzi: added aperture to IP1, IP5
+! saved on 29/06/09 15:08:00 by M.Giovannozzi: added aperture to IP2, IP8
+! saved on 06/10/09 14:02:00 by M.Giovannozzi: added aperture to LE; removed elements not present in V6.seq, i.e.
+!                                              ALONG_MKD.B2, XRPV.B7L1.B2, BPMSA.7L1.B2, XRPV.A7L1.B2
+! saved on 10/10/09 09:58:00 by M.Giovannozzi: changed names to replaced elements in sector 3-4
+! saved on 11/02/10 14:25:00 by M.Giovannozzi: corrected apertures of TCAPA/C as pointed out by A. Rossi
+! saved on 31/01/12 13:45:00 by M.Giovannozzi: added aperture to TCDS as agreed with SF and BG
+! saved on 05/10/15 12:50:00 by M.Giovannozzi: added aperture to BGI as agreed with BD
+! saved on 05/10/15 12:52:00 by M.Giovannozzi: changed aperture of MKD and MKQA according to discussions with A. Mereghetti and J. Uythoven
 
 IP1,              APERTYPE=CIRCLE,      APERTURE={ 0.029000,    0.000000,    0.000000,  0.000000 };
 MBAS2.1R1,        APERTYPE=RECTELLIPSE, APERTURE={ 9.999999,    9.999999,    9.999999,  9.999999 };
@@ -2491,7 +2494,7 @@ BPLH.A7L4.B2,     APERTYPE=RECTELLIPSE, APERTURE={ 0.040000,    0.040000,    0.0
 BPMYA.6L4.B2,     APERTYPE=RECTELLIPSE, APERTURE={ 0.030000,    0.030000,    0.030000,  0.030000 };
 MQY.6L4.B2,       APERTYPE=RECTELLIPSE, APERTURE={ 0.028900,    0.024000,    0.028900,  0.028900 };
 MCBYH.6L4.B2,     APERTYPE=RECTELLIPSE, APERTURE={ 0.028900,    0.024000,    0.028900,  0.028900 };
-MKQA.6L4.B2,      APERTYPE=RECTELLIPSE, APERTURE={ 0.030000,    0.030000,    0.030000,  0.030000 };
+MKQA.6L4.B2,      APERTYPE=RECTELLIPSE, APERTURE={ 0.028500,    0.028500,    0.028500,  0.028500 };
 BTVM.6L4.B2,      APERTYPE=RECTELLIPSE, APERTURE={ 0.040000,    0.040000,    0.040000,  0.040000 };
 APWL.B6L4.B2,     APERTYPE=RECTELLIPSE, APERTURE={ 0.041400,    0.414000,    0.414000,  0.414000 };
 BPMYB.5L4.B2,     APERTYPE=RECTELLIPSE, APERTURE={ 0.030000,    0.030000,    0.030000,  0.030000 };
@@ -4209,21 +4212,21 @@ TCDQM.B4R6.B2,    APERTYPE=RECTELLIPSE, APERTURE={ 0.021500,    0.027500,    0.0
 BPMYB.4R6.B2,     APERTYPE=RECTELLIPSE, APERTURE={ 0.030000,    0.030000,    0.030000,  0.030000 };
 MQY.4R6.B2,       APERTYPE=RECTELLIPSE, APERTURE={ 0.024000,    0.028900,    0.028900,  0.028900 };
 MCBYV.4R6.B2,     APERTYPE=RECTELLIPSE, APERTURE={ 0.024000,    0.028900,    0.028900,  0.028900 };
-MKD.A5R6.B2,      APERTYPE=RECTELLIPSE, APERTURE={ 0.029000,    0.029000,    0.029000,  0.029000 };
-MKD.B5R6.B2,      APERTYPE=RECTELLIPSE, APERTURE={ 0.029000,    0.029000,    0.029000,  0.029000 };
-MKD.C5R6.B2,      APERTYPE=RECTELLIPSE, APERTURE={ 0.029000,    0.029000,    0.029000,  0.029000 };
-MKD.D5R6.B2,      APERTYPE=RECTELLIPSE, APERTURE={ 0.029000,    0.029000,    0.029000,  0.029000 };
-MKD.E5R6.B2,      APERTYPE=RECTELLIPSE, APERTURE={ 0.029000,    0.029000,    0.029000,  0.029000 };
-MKD.F5R6.B2,      APERTYPE=RECTELLIPSE, APERTURE={ 0.029000,    0.029000,    0.029000,  0.029000 };
-MKD.G5R6.B2,      APERTYPE=RECTELLIPSE, APERTURE={ 0.029000,    0.029000,    0.029000,  0.029000 };
-MKD.H5R6.B2,      APERTYPE=RECTELLIPSE, APERTURE={ 0.029000,    0.029000,    0.029000,  0.029000 };
-MKD.I5R6.B2,      APERTYPE=RECTELLIPSE, APERTURE={ 0.029000,    0.029000,    0.029000,  0.029000 };
-MKD.J5R6.B2,      APERTYPE=RECTELLIPSE, APERTURE={ 0.029000,    0.029000,    0.029000,  0.029000 };
-MKD.K5R6.B2,      APERTYPE=RECTELLIPSE, APERTURE={ 0.029000,    0.029000,    0.029000,  0.029000 };
-MKD.L5R6.B2,      APERTYPE=RECTELLIPSE, APERTURE={ 0.029000,    0.029000,    0.029000,  0.029000 };
-MKD.M5R6.B2,      APERTYPE=RECTELLIPSE, APERTURE={ 0.029000,    0.029000,    0.029000,  0.029000 };
-MKD.N5R6.B2,      APERTYPE=RECTELLIPSE, APERTURE={ 0.029000,    0.029000,    0.029000,  0.029000 };
-MKD.O5R6.B2,      APERTYPE=RECTELLIPSE, APERTURE={ 0.029000,    0.029000,    0.029000,  0.029000 };
+MKD.A5R6.B2,      APERTYPE=RECTELLIPSE, APERTURE={ 0.028500,    0.028500,    0.028500,  0.028500 };
+MKD.B5R6.B2,      APERTYPE=RECTELLIPSE, APERTURE={ 0.028500,    0.028500,    0.028500,  0.028500 };
+MKD.C5R6.B2,      APERTYPE=RECTELLIPSE, APERTURE={ 0.028500,    0.028500,    0.028500,  0.028500 };
+MKD.D5R6.B2,      APERTYPE=RECTELLIPSE, APERTURE={ 0.028500,    0.028500,    0.028500,  0.028500 };
+MKD.E5R6.B2,      APERTYPE=RECTELLIPSE, APERTURE={ 0.028500,    0.028500,    0.028500,  0.028500 };
+MKD.F5R6.B2,      APERTYPE=RECTELLIPSE, APERTURE={ 0.028500,    0.028500,    0.028500,  0.028500 };
+MKD.G5R6.B2,      APERTYPE=RECTELLIPSE, APERTURE={ 0.028500,    0.028500,    0.028500,  0.028500 };
+MKD.H5R6.B2,      APERTYPE=RECTELLIPSE, APERTURE={ 0.028500,    0.028500,    0.028500,  0.028500 };
+MKD.I5R6.B2,      APERTYPE=RECTELLIPSE, APERTURE={ 0.028500,    0.028500,    0.028500,  0.028500 };
+MKD.J5R6.B2,      APERTYPE=RECTELLIPSE, APERTURE={ 0.028500,    0.028500,    0.028500,  0.028500 };
+MKD.K5R6.B2,      APERTYPE=RECTELLIPSE, APERTURE={ 0.028500,    0.028500,    0.028500,  0.028500 };
+MKD.L5R6.B2,      APERTYPE=RECTELLIPSE, APERTURE={ 0.028500,    0.028500,    0.028500,  0.028500 };
+MKD.M5R6.B2,      APERTYPE=RECTELLIPSE, APERTURE={ 0.028500,    0.028500,    0.028500,  0.028500 };
+MKD.N5R6.B2,      APERTYPE=RECTELLIPSE, APERTURE={ 0.028500,    0.028500,    0.028500,  0.028500 };
+MKD.O5R6.B2,      APERTYPE=RECTELLIPSE, APERTURE={ 0.028500,    0.028500,    0.028500,  0.028500 };
 BPMYA.5R6.B2,     APERTYPE=RECTELLIPSE, APERTURE={ 0.030000,    0.030000,    0.030000,  0.030000 };
 MQY.5R6.B2,       APERTYPE=RECTELLIPSE, APERTURE={ 0.028900,    0.024000,    0.028900,  0.028900 };
 MCBYH.5R6.B2,     APERTYPE=RECTELLIPSE, APERTURE={ 0.028900,    0.024000,    0.028900,  0.028900 };
