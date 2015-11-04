@@ -1,0 +1,42 @@
+option, warn,info;
+system,"ln -fns /afs/cern.ch/eng/lhc/optics/runII/2015 db5";
+system,"rm -r temp;mkdir temp";
+Option, -echo,-warn,-info;
+call,file="db5/lhc_as-built.seq";
+call,file="db5/aperture/aperture_as-built.b1.madx";
+call,file="db5/aperture/aperture_as-built.b2.madx";
+call,file="db5/aperture/aper_tol_as-built.b1.madx";
+call,file="db5/aperture/aper_tol_as-built.b2.madx";
+Option, -echo,warn,-info;
+
+call,file="db5/toolkit/macro.madx";
+call,file="macro_add.madx";
+
+NRJ=450;
+Beam,particle=proton,energy=NRJ,sequence=lhcb1,bv= 1;
+Beam,particle=proton,energy=NRJ,sequence=lhcb2,bv=-1;
+call,file="db5/opt_inj_colltunes.madx";
+!exec,crossing_disable;
+exec,check_ip(b1);exec,check_ip(b2);
+
+! thick sequence no MQW
+call,file="db5/IR7/ir7_nomqw_edit.madx";
+call,file="db5/IR7/ir7_nomqw.madx";
+exec,check_ip(b1);exec,check_ip(b2);
+
+emittance_norm=3.5e-6;
+apbbeat=1.05;
+halor=6.0001; halox=6; haloy=6;
+DParcx=0.14; DParcy=0.14;
+COmax=0.004; dPmax=0.0006; VMAXI=30; SPECIF=9;
+
+exec,mk_apir(7,b1,NRJ,1); exec,mk_apir(7,b2,NRJ,1);
+
+! thin sequence
+call,file="db5/toolkit/slice.madx";
+call,file="db5/opt_inj_colltunes_thin.madx";
+!exec,crossing_disable;
+call,file="db5/IR7/ir7_nomqw_thin.madx";
+exec,check_ip(b1);exec,check_ip(b2);
+
+return
