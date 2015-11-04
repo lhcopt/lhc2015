@@ -1,0 +1,157 @@
+option, warn,info;
+system,"rm -rf temp"; system,"mkdir temp";
+system,"ln -fns /afs/cern.ch/eng/lhc/optics/runII/2015 db5";
+
+Option, -echo,-warn,-info;
+call,file="db5/lhc_as-built.seq";
+call,file="db5/toolkit/macro.madx";
+call,file="db5/toolkit/optics_log.madx";
+Option, -echo,warn,-info;
+
+gen_optics(nnnn): macro={
+on_sep1_ref=on_sep1;on_x1_ref=on_x1;on_o1_ref=on_o1;on_a1_ref=on_a1;
+on_sep2_ref=on_sep2;on_x2_ref=on_x2;on_o2_ref=on_o2;on_a2_ref=on_a2;
+on_sep5_ref=on_sep5;on_x5_ref=on_x5;on_o5_ref=on_o5;on_a5_ref=on_a5;
+on_sep8_ref=on_sep8;on_x8_ref=on_x8;on_o8_ref=on_o8;on_a8_ref=on_a8;
+on_alice_ref=on_alice;
+on_lhcb_ref=on_lhcb;
+on_oe2_ref=on_oe2;
+
+on_sep1=0;on_x1=0;on_o1=0;on_a1=0;
+on_sep2=0;on_x2=0;on_o2=0;on_a2=0;on_alice=0;
+on_sep5=0;on_x5=0;on_o5=0;on_a5=0;
+on_sep8=0;on_x8=0;on_o8=0;on_a8=0;on_lhcb=0;
+on_oe2=0;
+
+call,file="db5/Misc/mb.madx";
+if (is_thin==1){ call,file="db5/Misc/mq_thin.madx";};
+if (is_thin==0){ call,file="db5/Misc/mq.madx";};
+call,file="db5/Misc/ms.madx";
+
+if (rematch_tune_mq==1){call,file="db5/toolkit/rematch_tune_mq.madx";};
+if (rematch_tune==1){call,file="db5/toolkit/rematch_tune.madx";};
+
+on_sep1=on_sep1_ref;on_x1=on_x1_ref;on_o1=on_o1_ref;on_a1=on_a1_ref;
+on_sep2=on_sep2_ref;on_x2=on_x2_ref;on_o2=on_o2_ref;on_a2=on_a2_ref;
+on_sep5=on_sep5_ref;on_x5=on_x5_ref;on_o5=on_o5_ref;on_a5=on_a5_ref;
+on_sep8=on_sep8_ref;on_x8=on_x8_ref;on_o8=on_o8_ref;on_a8=on_a8_ref;
+on_alice=on_alice_ref;
+on_lhcb=on_lhcb_ref;
+on_oe2=on_oe2_ref;
+
+call,file="db5/toolkit/rematch_chroma.madx";
+
+call,file="db5/toolkit/guess_knobs.madx";
+call,file="db5/toolkit/save_optics_lhc.madx";
+call,file="temp/optics.madx";
+system,"db5/toolkit/split_madx_lines temp/optics.madx";
+system,"cp temp/optics.madx nnnn.madx";
+};
+
+jac_calls=30; jac_tol=1e-22;
+
+call,file="db5/opt_inj_colltunes.madx";
+
+! collision
+NRJ=6370;
+Beam,particle=proton,energy=NRJ,sequence=lhcb1,bv= 1;
+Beam,particle=proton,energy=NRJ,sequence=lhcb2,bv=-1;
+exec,crossing_disable;
+
+! end of ramp
+on_x1=-145;on_sep1=-0.55;on_o1=0;on_a1=0;
+on_x2=-120;on_sep2= 2;on_o2=0;on_a2=0;on_alice=-7000/NRJ;
+on_x5= 145;on_sep5= 0.55;on_o5=0;on_a5=0;
+on_x8=-230;on_sep8=-1;on_o8=0;on_a8=0;on_lhcb=-7000/NRJ;
+on_oe2=0;
+qxb1  =  64.310000 ; qyb1  =  59.320000 ;
+qxb2  =  64.310000 ; qyb2  =  59.320000 ;
+Qpxb1 =  3.000000 ; Qpyb1 =  3.000000 ;
+Qpxb2 =  3.000000 ; Qpyb2 =  3.000000 ;
+rematch_tune=0;
+exec,gen_optics(opt_11000_10000_11000_10000_ion);
+
+! squeeze step 0
+call,file="db5/IR2/ir2_8000_912.madx";
+exec,gen_optics(opt_11000_8000_11000_10000_ion);
+
+! squeeze step 1
+call,file="db5/IR1/ir1_9000.madx";
+call,file="db5/IR2/ir2_7600_904.madx";
+call,file="db5/IR5/ir5_9000.madx";
+call,file="db5/IR8/ir8_9000_934.madx";
+on_x8=-250;
+exec,gen_optics(opt_9000_7600_9000_9000_ion);
+
+! squeeze step 2
+call,file="db5/IR1/ir1_7000.madx";
+call,file="db5/IR2/ir2_7200_897.madx";
+call,file="db5/IR5/ir5_7000.madx";
+call,file="db5/IR8/ir8_8000_919.madx";
+exec,gen_optics(opt_7000_7200_7000_8000_ion);
+
+
+! squeeze step 3
+call,file="db5/IR1/ir1_4000.madx";
+call,file="db5/IR2/ir2_4500_889.madx";
+call,file="db5/IR5/ir5_4000.madx";
+call,file="db5/IR8/ir8_7000_906.madx";
+exec,gen_optics(opt_4000_4500_4000_7000_ion);
+
+! squeeze step 4
+call,file="db5/IR1/ir1_3000.madx";
+call,file="db5/IR2/ir2_3500_889.madx";
+call,file="db5/IR5/ir5_3000.madx";
+call,file="db5/IR8/ir8_6000_895.madx";
+exec,gen_optics(opt_3000_3500_3000_6000_ion);
+
+! squeeze step 5
+call,file="db5/IR1/ir1_2500.madx";
+call,file="db5/IR2/ir2_2500_889.madx";
+call,file="db5/IR5/ir5_2500.madx";
+call,file="db5/IR8/ir8_5000_886.madx";
+exec,gen_optics(opt_2500_2500_2500_5000_ion);
+
+! squeeze step 6
+call,file="db5/IR1/ir1_2000.madx";
+call,file="db5/IR2/ir2_1800_889.madx";
+call,file="db5/IR5/ir5_2000.madx";
+call,file="db5/IR8/ir8_4000_880.madx";
+exec,gen_optics(opt_2000_1800_2000_4000_ion);
+
+! squeeze step 7
+call,file="db5/IR1/ir1_1500.madx";
+call,file="db5/IR2/ir2_1400_889.madx";
+call,file="db5/IR5/ir5_1500.madx";
+call,file="db5/IR8/ir8_3500_877.madx";
+exec,gen_optics(opt_1500_1400_1500_3500_ion);
+
+! squeeze step 8
+call,file="db5/IR1/ir1_1200.madx";
+call,file="db5/IR2/ir2_1200_889.madx";
+call,file="db5/IR5/ir5_1200.madx";
+call,file="db5/IR8/ir8_3250_876.madx";
+exec,gen_optics(opt_1200_1200_1200_3250_ion);
+
+! squeeze step 9
+call,file="db5/IR1/ir1_1000.madx";
+call,file="db5/IR2/ir2_1000_889.madx";
+call,file="db5/IR5/ir5_1000.madx";
+call,file="db5/IR8/ir8_3000_875.madx";
+exec,gen_optics(opt_1000_1000_1000_3000_ion);
+
+! squeeze step 10
+call,file="db5/IR1/ir1_900.madx";
+call,file="db5/IR2/ir2_900_889.madx";
+call,file="db5/IR5/ir5_900.madx";
+exec,gen_optics(opt_900_900_900_3000_ion);
+
+! squeeze step 11
+call,file="db5/IR1/ir1_800.madx";
+call,file="db5/IR2/ir2_800_889.madx";
+call,file="db5/IR5/ir5_800.madx";
+on_x2=-60; on_oe2=-2;
+exec,gen_optics(opt_800_800_800_3000_ion);
+on_sep1=0; on_sep2=0; on_sep5=0; on_sep8=0;
+exec,gen_optics(opt_800_10000_800_3000_ion_coll);
+
