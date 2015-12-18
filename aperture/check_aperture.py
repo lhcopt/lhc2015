@@ -18,7 +18,9 @@ def check_aperture(fn,eps=0,n1ref='nominal'):
   limn1={
      'nominal':{'MSD':7.5,'MQW':5.5,'MQF':7,'MQD':6.7,'TCT':6.5},
      'hllhc_col':{'MSD':12.0,'MQW':12.0,'MQF':12.0,'MQD':12.0,'TCT':12.0},
-     'hllhc_inj':{'MSD':9.0,'MQW':9.0,'MQF':9.0,'MQD':9.0,'TCT':9.0}
+     'hllhc_inj':{'MSD':9.0,'MQW':9.0,'MQF':9.0,'MQD':9.0,'TCT':9.0},
+     '9':{'MSD':9.0,'MQW':9.0,'MQF':9.0,'MQD':9.0,'TCT':9.0},
+     '12':{'MSD':12.0,'MQW':12.0,'MQF':12.0,'MQD':12.0,'TCT':12.0},
   }
   for l in fh:
     if l.startswith('*'):

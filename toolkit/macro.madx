@@ -223,7 +223,7 @@ use,sequence=lhcb2;twiss,chrom,file=temp/twiss_lhcb2.tfs;
 
 
 mk_apir(nir,bim,NRJ,FULL) : macro ={
-exec,mk_beam(NRJ);
+!exec,mk_beam(NRJ);
 !if (apbbeat==0){ apbbeat=1.1;};
 !if (halor==0){ halor=8.4;};
 !if (halox==0){ halox=7.3;};
@@ -268,11 +268,17 @@ aperture,range=s.ds.lnir.bim/e.ds.rnir.bim,
          file=temp/ap_irnirbim.tfs;
 !system, "rm offset.ip*b*.tfs";
 
-system,"db5/aperture/check_aperture.py temp/ap_irnirbim.tfs";
+if (SPECIF==9){
+  system,"db5/aperture/check_aperture.py temp/ap_irnirbim.tfs 0 9";
+};
+if (SPECIF==12){
+  system,"db5/aperture/check_aperture.py temp/ap_irnirbim.tfs 0 12";
+};
+
 };
 
 mk_aparc(NARC1,NARC2,BIM,NRJ) : macro ={
-!exec,mk_beam(NRJ);
+exec,mk_beam(NRJ);
 
 use,sequence=lhcBIM,range=e.ds.rNARC1.BIM/s.ds.lNARC2.BIM;
 
@@ -2789,14 +2795,12 @@ timestamp,clow,schigh,bmaxds,sc79,imb;
 };
 
 copyir5to1: macro={
-kqx1.l1     =     kqx1.l5           ;
-kqx2a.l1    =     kqx2a.l5          ;
-kqx2b.l1    =     kqx2b.l5          ;
-kqx3.l1     =     kqx3.l5           ;
-kqx1.r1     :=             -kqx1.l1 ;
-kqx2a.r1    :=            -kqx2a.l1 ;
-kqx2b.r1    :=            -kqx2b.l1 ;
-kqx3.r1     :=             -kqx3.l1 ;
+kqx.l1     =     kqx.l5           ;
+ktqx1.l1    =    ktqx1.l5          ;
+ktqx2.l1    =    ktqx2.l5          ;
+kqx.r1     =     kqx.r5           ;
+ktqx1.r1    =    ktqx1.r5          ;
+ktqx2.r1    =    ktqx2.r5          ;
 kq4.l1b1    = kq4.l5b1         ;
 kq4.r1b1    = kq4.r5b1         ;
 kq5.l1b1    = kq5.l5b1         ;
