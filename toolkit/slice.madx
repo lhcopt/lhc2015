@@ -20,12 +20,12 @@ select, flag=makethin, pattern=mqt\.  ,  slice=2;
 !thin lens
 if (version >= 50208) { !
   option rbarc=false; beam;
-  use,sequence=lhcb1; makethin, makedipedge=false, style=teapot;
-  use,sequence=lhcb2; makethin, makedipedge=false, style=teapot;
+  use,sequence=lhcb1; makethin,sequence=lhcb1, makedipedge=false, style=teapot;
+  use,sequence=lhcb2; makethin,sequence=lhcb2, makedipedge=false, style=teapot;
   option rbarc=true;
 } else {
   beam;
-  use,sequence=lhcb1; makethin, style=teapot;
-  use,sequence=lhcb2; makethin, style=teapot;
+  use,sequence=lhcb1; makethin,sequence=lhcb1, style=teapot;
+  use,sequence=lhcb2; makethin,sequence=lhcb2, style=teapot;
 };
 is_thin=1;
