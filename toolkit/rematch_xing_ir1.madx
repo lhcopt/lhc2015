@@ -29,7 +29,6 @@ if (on_holdselect==0){
  exec,select(1,81,12,b2);
 };
 
-
 xip1b1 := x_on_sep1  * on_sep1;
 xip1b2 :=-x_on_sep1  * on_sep1;
 yip1b1 := y_on_o1    * on_o1;
