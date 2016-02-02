@@ -1,6 +1,6 @@
 ! Links definitions
 option, warn,info;
-system,"ln -fns /afs/cern.ch/eng/lhc/optics/runII/2015 db5";
+system,"ln -fns /afs/cern.ch/eng/lhc/optics/runII/2016 db5";
 
 is_thin=0;
 

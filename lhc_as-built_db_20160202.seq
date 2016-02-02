@@ -3,7 +3,7 @@
   *
   * LHC ring version STUDY in MAD X SEQUENCE format
   * Generated the 02-FEB-2016 13:06:30 from LHCLAYOUT@EDMSDB Database
-  * and manually edited by Riccardo De Maria and Adriana Rossi
+  *
   ***********************************************************************************/
 
 
@@ -434,7 +434,7 @@ REAL CONST Kmin_MQTLI          = -125;
 REAL CONST Kmin_MQWA           = 1.873;
 REAL CONST Kmin_MQWB           = -30;
 REAL CONST Kmin_MQXA           = 5.71;
-REAL CONST Kmin_MQXB           = 6.433;
+REAL CONST Kmin_MQXB           = 4.283;
 REAL CONST Kmin_MQY_4.5K       = 3.546;
 REAL CONST Kmin_MS             = -4430 * 2;
 REAL CONST Kmin_MSDA           = 0.021;
@@ -495,7 +495,7 @@ REAL CONST Imax_MQTLI          = 550;
 REAL CONST Imax_MQWA           = 710;
 REAL CONST Imax_MQWB           = 600;
 REAL CONST Imax_MQXA           = 7180;
-REAL CONST Imax_MQXB           = 11960;
+REAL CONST Imax_MQXB           = 7180;
 REAL CONST Imax_MQY_4.5K       = 3610;
 REAL CONST Imax_MS             = 550;
 REAL CONST Imax_MSDA           = 880;

@@ -1,5 +1,5 @@
 option, warn,info,-echo;
-system,"ln -fns /afs/cern.ch/eng/lhc/optics/runII/2015 db5";
+system,"ln -fns /afs/cern.ch/eng/lhc/optics/runII/2016 db5";
 
 call,file="db5/toolkit/macro.madx";
 call,file="db5/lhc_as-built.seq";

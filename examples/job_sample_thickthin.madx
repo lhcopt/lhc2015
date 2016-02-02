@@ -1,6 +1,6 @@
 ! Links definitions
 option, warn,info;
-system,"ln -fns /afs/cern.ch/eng/lhc/optics/runII/2015 db5";
+system,"ln -fns /afs/cern.ch/eng/lhc/optics/runII/2016 db5";
 
 is_thin=1;
 mylhcbeam=4; !1: Beam 1, 2: Beam 2 clockwise, 4: Beam 2 anti-clockwise

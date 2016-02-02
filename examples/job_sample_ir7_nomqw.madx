@@ -1,5 +1,5 @@
 option, warn,info;
-system,"ln -fns /afs/cern.ch/eng/lhc/optics/runII/2015 db5";
+system,"ln -fns /afs/cern.ch/eng/lhc/optics/runII/2016 db5";
 system,"rm -r temp;mkdir temp";
 Option, -echo,-warn,-info;
 call,file="db5/lhc_as-built.seq";
