@@ -22,7 +22,7 @@ py.ip8:=    +0.000001000*on_a8;
 
 !*** IP orbit settings ***
 on_x1  = 50;
-on_sep1=-1.0;
+on_sep1= 1.0;
 on_o1  = 0;
 on_x2  =200;
 on_sep2= 2;
