@@ -22,6 +22,7 @@
 ! saved on 31/01/12 13:45:00 by M.Giovannozzi: added aperture to TCDS as agreed with SF and BG
 ! saved on 05/10/15 12:45:00 by M.Giovannozzi: changed aperture of MKD and MKQA according to discussions with A. Mereghetti and J. Uythoven
 ! saved on 05/10/15 12:48:00 by M.Giovannozzi: added aperture to BGI as agreed with BD
+! saved on 12/01/16 20:10:00 by M.Giovannozzi: changed aperture of TCDD, TCDDM and APWL after checking the layout database information
 
 IP1,              APERTYPE=CIRCLE,      APERTURE={ 0.029000,    0.000000,    0.000000,  0.000000 };
 MBAS2.1R1,        APERTYPE=RECTELLIPSE, APERTURE={ 9.999999,    9.999999,    9.999999,  9.999999 };
@@ -2501,7 +2502,7 @@ MCBYV.6L4.B1,     APERTYPE=RECTELLIPSE, APERTURE={ 0.024000,    0.028900,    0.0
 BQKV.6L4.B1,      APERTYPE=RECTELLIPSE, APERTURE={ 0.040000,    0.040000,    0.040000,  0.040000 };
 MKQA.6L4.B1,      APERTYPE=RECTELLIPSE, APERTURE={ 0.028500,    0.028500,    0.028500,  0.028500 };
 BTVM.6L4.B1,      APERTYPE=RECTELLIPSE, APERTURE={ 0.040000,    0.040000,    0.040000,  0.040000 };
-APWL.B6L4.B1,     APERTYPE=RECTELLIPSE, APERTURE={ 0.041400,    0.414000,    0.414000,  0.414000 };
+APWL.B6L4.B1,     APERTYPE=RECTELLIPSE, APERTURE={ 0.041400,    0.041400,    0.041400,  0.041400 };
 BQKH.B6L4.B1,     APERTYPE=RECTELLIPSE, APERTURE={ 0.040000,    0.040000,    0.040000,  0.040000 };
 BPMYA.5L4.B1,     APERTYPE=RECTELLIPSE, APERTURE={ 0.030000,    0.030000,    0.030000,  0.030000 };
 MQY.5L4.B1,       APERTYPE=RECTELLIPSE, APERTURE={ 0.028900,    0.024000,    0.028900,  0.028900 };
