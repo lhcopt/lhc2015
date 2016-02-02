@@ -21,7 +21,7 @@ px.ip2:=    +0.000000962*on_a2;
 py.ip8:=    +0.000001000*on_a8;
 
 !*** IP orbit settings ***
-on_x1  =-145;
+on_x1  = 145;
 on_sep1=-0.55;
 on_o1  = 0;
 on_x2  =200;
