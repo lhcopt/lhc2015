@@ -488,7 +488,7 @@ make_opticstbl_ir6(ir6):macro={
 
 make_opticstbl_arc(arc):macro={
   if (on_opticstbl_arc==0){
-    create,table=ir6,column=
+    create,table=arc,column=
     kqd,kqd.a12,kqd.a23,kqd.a34,kqd.a45,kqd.a56,kqd.a67,kqd.a78,kqd.a81,
     kqf,kqf.a12,kqf.a23,kqf.a34,kqf.a45,kqf.a56,kqf.a67,kqf.a78,kqf.a81,
     kqtd.b1,kqtd.b2,
