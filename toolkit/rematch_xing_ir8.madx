@@ -8,6 +8,8 @@ limitMCBC :=  89.8700e-6*scale0;
 limitMCBW :=  80.1400e-6*scale0;
 
 on_sep8_aux=on_sep8;on_x8_aux=on_x8;on_o8_aux=on_o8;on_a8_aux=on_a8;
+on_lhcb_aux=on_lhcb; on_lhcb=0;
+
 
 y_on_sep8=1e-3; px_on_x8=1e-6; x_on_o8=1e-3; py_on_a8=1e-6;
 
@@ -310,6 +312,7 @@ value,acbyvs5.r8b2_on_sep8/limitMCBY*100*on_sep8;
 
 
 on_sep8=on_sep8_aux;on_x8=on_x8_aux;on_o8=on_o8_aux;on_a8=on_a8_aux;
+on_lhcb=on_lhcb_aux;
 
 
 value,tarir8_x8,tarir8_sep8,tarir8_o8,tarir8_a8;
