@@ -1,0 +1,11 @@
+iii="IR1/ir1_1000.madx IR1/ir1_1200.madx IR1/ir1_1500.madx IR1/ir1_2000.madx IR1/ir1_2500.madx IR1/ir1_3000.madx IR1/ir1_4000.madx IR1/ir1_7000.madx IR1/ir1_9000.madx IR1/ir1_900.madx IR2/ir2_10000_951.madx IR5/ir5_1000.madx IR5/ir5_1200.madx IR5/ir5_1500.madx IR5/ir5_2000.madx IR5/ir5_2500.madx IR5/ir5_3000.madx IR5/ir5_4000.madx IR5/ir5_7000.madx IR5/ir5_9000.madx IR5/ir5_900.madx IR8/ir8_3000_875.madx IR8/ir8_3250_876.madx IR8/ir8_3500_877.madx IR8/ir8_4000_880.madx IR8/ir8_5000_886.madx IR8/ir8_6000_895.madx IR8/ir8_7000_906.madx IR8/ir8_8000_919.madx IR8/ir8_9000_934.madx"
+
+svn=~/scratch/acc-co/trunk/accmodel/jmad/models/accmodel-jmad-models-lhc/src/java/cern/accsoft/steering/jmad/modeldefs/defs/repdata/2016/strength
+
+med=~/work/lhc/opt_med
+cur=.
+
+for opt in $iii
+do
+  meld $svn/$opt $cur/$opt
+done
