@@ -21,8 +21,8 @@ px.ip2:=    +0.000001000*on_a2;
 py.ip8:=    +0.000001000*on_a8;
 
 !*** IP orbit settings ***
-on_x1  = 170;
-on_sep1= 2;
+on_x1  =-170;
+on_sep1=-2;
 on_o1  = 0;
 on_x2  =170;
 on_sep2= 3.5;
@@ -39,7 +39,7 @@ on_a8  =-40;
 
 !*** Experiment state ***
 nrj=450;
-on_alice:=7000/nrj;
+on_alice:=-7000/nrj;
 on_lhcb:=-7000/nrj;
 on_sol_atlas=0;
 on_sol_alice=0;
