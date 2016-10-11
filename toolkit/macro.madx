@@ -3514,3 +3514,28 @@ exec phasearc(8,1,81,BIM);
 };
 
 
+check_w(bim): macro={
+  use,sequence=lhcbim;twiss,chrom,file=twiss_lhcbim.tfs;
+};
+
+madchrom2(bim): macro={
+  use,sequence=lhcbim; twiss;
+  qx0bim=table(summ,q1);
+  qx1bim=table(summ,dq1);
+  qy0bim=table(summ,q2);
+  qy1bim=table(summ,dq2);
+  dpp=.000001;
+  twiss,deltap=dpp;
+  qxppbim=table(summ,q1);
+  qyppbim=table(summ,q2);
+  twiss,deltap=-dpp;
+  qxmpbim=table(summ,q1);
+  qympbim=table(summ,q2);
+  qx2bim=(qxppbim-2*qx0bim+qxmpbim)/dpp^2;
+  qy2bim=(qyppbim-2*qy0bim+qympbim)/dpp^2;
+  qx1abim=(qxppbim-qxmpbim)/dpp/2;
+  qy1abim=(qyppbim-qympbim)/dpp/2;
+  value,qx0bim,qx1bim,qx2bim;
+  value,qy0bim,qy1bim,qy2bim;
+};
+
