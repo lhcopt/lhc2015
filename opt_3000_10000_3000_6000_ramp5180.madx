@@ -40,7 +40,7 @@ on_a8  =-13.1376;
 !*** Experiment state ***
 nrj=5180;
 on_alice:=7000/nrj;
-on_lhcb:=7000/nrj;
+on_lhcb:=-7000/nrj;
 on_sol_atlas=0;
 on_sol_alice=0;
 on_sol_cms=0;
