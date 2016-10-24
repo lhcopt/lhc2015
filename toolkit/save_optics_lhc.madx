@@ -39,15 +39,15 @@ on_sep2=0;on_x2=0;on_o2=0;on_a2=0;on_alice=0; on_oe2=0;
 on_sep5=0;on_x5=0;on_o5=0;on_a5=0;
 on_sep8=0;on_x8=0;on_o8=0;on_a8=0;on_lhcb=0;
 
-kqtd.b1ref=kqtd.b1;kqtd.b2ref=kqtd.b2;
-kqtf.b1ref=kqtf.b1;kqtf.b2ref=kqtf.b2;
-kqtd.b1 =  0.0; kqtd.b2 =  0.0;
-kqtf.b1 =  0.0; kqtf.b2 =  0.0;
-
-kqfref=kqf; kqdref=kqd;
-if (is_thin==1){ call,file="db5/Misc/mq_thin.madx";};
-if (is_thin==0){ call,file="db5/Misc/mq.madx";};
-
+! For injection optics
+!kqtd.b1ref=kqtd.b1;kqtd.b2ref=kqtd.b2;
+!kqtf.b1ref=kqtf.b1;kqtf.b2ref=kqtf.b2;
+!kqtd.b1 =  0.0; kqtd.b2 =  0.0;
+!kqtf.b1 =  0.0; kqtf.b2 =  0.0;
+!
+!kqfref=kqf; kqdref=kqd;
+!if (is_thin==1){ call,file="db5/Misc/mq_thin.madx";};
+!if (is_thin==0){ call,file="db5/Misc/mq.madx";};
 
 
 seqedit,sequence=lhcb1;flatten;cycle,start=s.cell.12.b1;endedit;
@@ -70,11 +70,11 @@ exec,save_irtwiss(5,b2);exec,save_arctwiss(5,6,b2);
 exec,save_irtwiss(6,b2);exec,save_arctwiss(6,7,b2);
 exec,save_irtwiss(7,b2);exec,save_arctwiss(7,8,b2);
 exec,save_irtwiss(8,b2);exec,save_arctwiss(8,1,b2);
-kqtd.b1 = kqtd.b1ref;
-kqtd.b2 = kqtd.b2ref;
-kqtf.b1 = kqtf.b1ref;
-kqtf.b2 = kqtf.b2ref;
-kqf=kqfref; kqd=kqdref;
+!kqtd.b1 = kqtd.b1ref;
+!kqtd.b2 = kqtd.b2ref;
+!kqtf.b1 = kqtf.b1ref;
+!kqtf.b2 = kqtf.b2ref;
+!kqf=kqfref; kqd=kqdref;
 
 
 on_sep1=1;on_x1=1;on_o1=1;on_a1=1;
