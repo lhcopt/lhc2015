@@ -1,0 +1,30 @@
+! Links definitions
+option, warn,info;
+system,"ln -fns /afs/cern.ch/eng/lhc/optics/runII/2016 db5";
+
+Option, -echo,-warn,-info;
+call,file="db5/lhc_as-built.seq";
+call,file="db5/toolkit/macro.madx";
+
+exec,mk_beam(6500);
+
+
+! 40 cm nominal version (without phase bump)
+call, file="db5/opt_inj_colltunes.madx";
+exec,crossing_disable;
+call, file="db5/IR1/ir1_400.madx";
+call, file="db5/IR5/ir5_400.madx";
+call, file="db5/IR8/ir8_3000_875.madx";
+exec,check_ip(b1); exec,check_ip(b2);
+
+! 40 cm development version
+call, file="db5/IR1/ir1_400_dev2.madx";
+call, file="db5/IR5/ir5_400_dev2.madx";
+on_x1=-170; on_x5=170;
+exec,check_ip(b1); exec,check_ip(b2);
+
+! 33 cm development version
+call, file="db5/IR1/ir1_330_dev2.madx";
+call, file="db5/IR5/ir5_330_dev2.madx";
+on_x1=-170; on_x5=170;
+exec,check_ip(b1); exec,check_ip(b2);
