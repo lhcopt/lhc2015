@@ -5,8 +5,8 @@ option, -echo,-warn,-info;
 call,file="db5/toolkit/macro.madx";
 call,file="db5/lhc_as-built.seq";
 call,file="db5/toolkit/slice.madx";
-!call, file="db5/opt_400_10000_400_3000_thin_totem5.madx";
-call, file="db5/opt_3000_10000_3000_6000_thin.madx";
+call, file="db5/opt_400_10000_400_3000_thin_totem5.madx";
+!call, file="db5/opt_3000_10000_3000_6000_thin.madx";
 exec,crossing_disable;
 
 seqedit,sequence=lhcb1;flatten; cycle,start=e.ds.l3.b1; flatten; endedit;
@@ -15,32 +15,90 @@ seqedit,sequence=lhcb2;flatten; cycle,start=e.ds.l3.b2; flatten; endedit;
 option, -echo,warn,info;
 exec,mk_beam(6500);
 
-exec,set_kspp;
+exec,set_kspp;exec,reset_kspp;
 
-!call,file="db5/Misc/qpp_400.madx";
-call,file="db5/Misc/qpp_3000.madx";
 
-exec,crossing_disable;
-Qpxb1=15; Qpyb1=15; Qpxb2=15; Qpyb2=15;
-call,file="db5/toolkit/rematch_chroma.madx";
-exec,madchrom2(b1); exec,madchrom2(b2);
-
-! values 0 to 3 for 3m and 1 to 2 for 40cm
-qppf_neg.b1=2; qppf_pos.b1=0; qppd_neg.b1=2; qppd_pos.b1=0;
-qppf_neg.b2=2; qppf_pos.b2=0; qppd_neg.b2=2; qppd_pos.b2=0;
-
-exec,madchrom2(b1); exec,madchrom2(b2);
-
+!call,file="db5/Misc/qpp_3000.madx";
 ! for 3 m knob=1 Q" is:
 !B1 H neg -18179   pos  1810.33
 !B1 V neg -15419.5 pos  23489.9
 !B2 H neg -16786.2 pos  1138.74
 !B2 V neg -10449.6 pos    29437
 
+call,file="db5/Misc/qpp_400.madx";
 ! for 40 cm knob=1
-!neg -9410.56 pos  38215.6
-!neg -46073.3 pos  22655.2
-!neg -20289.9 pos  42497.2
-!neg -12950.3 pos  40687.5
+!B1 H neg -9410.56 pos  38215.6
+!B1 V neg -46073.3 pos  22655.2
+!B2 H neg -20289.9 pos  42497.2
+!B2 V neg -12950.3 pos  40687.5
+
+exec,crossing_disable;
+Qpxb1=15; Qpyb1=15; Qpxb2=15; Qpyb2=15;
+call,file="db5/toolkit/rematch_chroma.madx";
+exec,madchrom2(b1);
+exec,mk_foot(12,dynaptuneb1_qpp.tfs);
+
+exec,madchrom2(b2);
+exec,mk_foot(12,dynaptuneb2_qpp.tfs);
+
+! values 0 to 3 for 3m and 1 to 2 for 40cm
+qppf_neg.b1=0.665; qppf_pos.b1=0; qppd_neg.b1=0; qppd_pos.b1=0.67;
+exec,madchrom2(b1);
+exec,mk_foot(12,dynaptuneb1_noqpp.tfs);
+
+qppf_neg.b2=0.52; qppf_pos.b2=0; qppd_neg.b2=0.0; qppd_pos.b2=0.075;
+exec,madchrom2(b2);
+exec,mk_foot(12,dynaptuneb2_noqpp.tfs);
 
 
+exec,set_kspp; call,file="db5/Misc/qpp_400.madx";
+
+Qpxb1=3; Qpyb1=3; Qpxb2=3; Qpyb2=3;
+qppf_neg.b1=0; qppf_pos.b1=0; qppd_neg.b1=0; qppd_pos.b1=0;
+qppf_neg.b2=0; qppf_pos.b2=0; qppd_neg.b2=0; qppd_pos.b2=0;
+call,file="db5/toolkit/rematch_chroma.madx";
+exec,madchrom2(b1);
+exec,mk_foot(12,dynaptuneb1_qpp.tfs);
+
+exec,madchrom2(b2);
+exec,mk_foot(12,dynaptuneb2_qpp.tfs);
+
+! values 0 to 3 for 3m and 1 to 2 for 40cm
+qppf_neg.b1=0.665; qppf_pos.b1=0; qppd_neg.b1=0; qppd_pos.b1=0.67;
+exec,madchrom2(b1);
+exec,mk_foot(12,dynaptuneb1_noqpp.tfs);
+
+qppf_neg.b2=0.52; qppf_pos.b2=0; qppd_neg.b2=0.0; qppd_pos.b2=0.075;
+exec,madchrom2(b2);
+exec,mk_foot(12,dynaptuneb2_noqpp.tfs);
+
+
+! end of squeeze
+call, file="db5/opt_3000_10000_3000_6000_thin.madx";
+exec,crossing_disable;
+exec,set_kspp;call,file="db5/Misc/qpp_3000.madx";
+! for 3 m knob=1 Q" is:
+!B1 H neg -18179   pos  1810.33
+!B1 V neg -15419.5 pos  23489.9
+!B2 H neg -16786.2 pos  1138.74
+!B2 V neg -10449.6 pos    29437
+
+
+Qpxb1=15; Qpyb1=15; Qpxb2=15; Qpyb2=15;
+qppf_neg.b1=0; qppf_pos.b1=0; qppd_neg.b1=0; qppd_pos.b1=0;
+qppf_neg.b2=0; qppf_pos.b2=0; qppd_neg.b2=0; qppd_pos.b2=0;
+call,file="db5/toolkit/rematch_chroma.madx";
+exec,madchrom2(b1);
+exec,mk_foot(12,dynaptuneb1_noqpp.tfs);
+exec,madchrom2(b2);
+exec,mk_foot(12,dynaptuneb2_noqpp.tfs);
+
+qppf_neg.b1=2; qppf_pos.b1=0; qppd_neg.b1=2; qppd_pos.b1=0;
+exec,madchrom2(b1);
+exec,mk_foot(12,dynaptuneb2_qpp.tfs);
+
+qppf_neg.b2=2; qppf_pos.b2=0; qppd_neg.b2=2; qppd_pos.b2=0;
+exec,madchrom2(b2);
+exec,mk_foot(12,dynaptuneb2_qpp.tfs);
+
+!

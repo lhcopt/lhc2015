@@ -118,7 +118,7 @@ make_opticstbl_ir5(ir5):macro={
     acbcv6.l5b2_on_o5,acbch6.r5b2_on_o5,
     acbch7.r5b1_on_o5,acbch7.l5b2_on_o5,
     tarir5b1,tarir5b2,
-    timestamp;
+    timestamp,nnn;
     on_opticstbl_ir5=1;value,on_opticstbl_ir5;
   };
 };
