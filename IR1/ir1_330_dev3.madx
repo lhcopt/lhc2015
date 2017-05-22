@@ -1,8 +1,8 @@
-!*** IR1 Optics ***
-betxIP1b1 =   0.400000; betyIP1b1 =   0.400000; alfxIP1b1 =   0.000000; alfyIP1b1 =   0.000000; dxIP1b1   =   0.000000; dpxIP1b1  =   0.000000;
-betxIP1b2 =   0.400000; betyIP1b2 =   0.400000; alfxIP1b2 =   0.000000; alfyIP1b2 =   0.000000; dxIP1b2   =   0.000000; dpxIP1b2  =   0.000000;
-muxIP1b1  =   0.000000; muyIP1b1  =   0.000000; muxIP1b1_L=   0.000000; muyIP1b1_L=   0.000000; muxIP1b1_R=   0.000000; muyIP1b1_R=   0.000000;
-muxIP1b2  =   0.000000; muyIP1b2  =   0.000000; muxIP1b2_L=   0.000000; muyIP1b2_L=   0.000000; muxIP1b2_R=   0.000000; muyIP1b2_R=   0.000000;
+!*** IR5 Optics ***
+betxIP1b1 =   0.330000; betyIP1b1 =   0.330000; alfxIP1b1 =   0.000000; alfyIP1b1 =   0.000000; dxIP1b1   =   0.000000; dpxIP1b1  =   0.000000;
+betxIP1b2 =   0.330000; betyIP1b2 =   0.330000; alfxIP1b2 =  -0.000000; alfyIP1b2 =   0.000000; dxIP1b2   =   0.000000; dpxIP1b2  =  -0.000000;
+muxIP1b1  =   2.633000; muyIP1b1  =   2.649000; muxIP1b1_L=   1.016055; muyIP1b1_L=   1.621750; muxIP1b1_R=   1.616945; muyIP1b1_R=   1.027250;
+muxIP1b2  =   2.633000; muyIP1b2  =   2.649000; muxIP1b2_L=   1.613747; muyIP1b2_L=   0.998785; muxIP1b2_R=   1.019253; muyIP1b2_R=   1.650215;
 
 !xip1b1      :=+1.000000000e-03*on_sep1 +1.000000000e-03*on_o1h;
 !xip1b2      :=-1.000000000e-03*on_sep1 +1.000000000e-03*on_o1h;

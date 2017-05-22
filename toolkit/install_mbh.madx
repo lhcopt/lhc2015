@@ -25,8 +25,8 @@ if (mylhcbeam>2){
 install_mbh(mbm,mbn,irn,ira,irb): macro={
 print, text="installing MBH in Qmbn  IRirn in the ARCirairb";
 
-abh.airnirb=ab.airnirb/2;   kbh.airnirb=ab.airnirb/l.mbh;
-abh.airairn=ab.airairn/2;   kbh.airairn=ab.airairn/l.mbh;
+abh.airnirb=ab.airnirb/2;   kbh.airnirb=abh.airnirb/l.mbh;
+abh.airairn=ab.airairn/2;   kbh.airairn=abh.airairn/l.mbh;
 
 mbh.ambnrirn.b1:mbh, angle:= abh.airnirb, k0= kbh.airnirb,  polarity=+1;
 mbh.bmbnrirn.b1:mbh, angle:= abh.airnirb, k0= kbh.airnirb,  polarity=+1;

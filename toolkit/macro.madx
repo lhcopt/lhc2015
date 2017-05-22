@@ -3644,5 +3644,15 @@ write,table=dynaptune,file="fname";
 };
 
 
+check_knob(kkkk,vvvv): macro={
+kkkk=1;
+exec,check_ip(b1); check_vvvvb1=vvvvb1;
+exec,check_ip(b2); check_vvvvb2=vvvvb2;
+kkkk=0;
+value,check_vvvvb1,check_vvvvb2;
+};
+
+
+
 
 
